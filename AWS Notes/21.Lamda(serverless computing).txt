@@ -1,0 +1,74 @@
+
+Lambdas(ServerLess Computing)
++++++++++++++++++++++++++++++++++
+
+Q: what are the ways/approches to run my application in AWS?
+A: 1) by installing server in EC instance & deploying the application (i.e IAAS)
+   2) by Elastic Bean Stack (PAAS)
+
+Note: AWS is providing IAAS service for us to host the application, i have a development team  who developed this application now i want to host the application in the  cloud platform
+	so in the AWS cloud i have taken EC2 VM  in this EC2 VM iam going to linux OS then web server, loadbalancing,autoscalling,.. then iam going to run my application this is one approach
+	Here deployed my application in the EC2 so we need to manage the servers and all
+	AWS will charge the billing for hourly for the resources
+	AWS in a day 24 hours billing will be available i.e for how many hours urs EC2 server is running for those any hours u need to pay the amount
+	Here bill will be generated based on PayAsYouGo Model
+
+	Assume that u have taken one EC2 VM  & u have deployed ur application and ur application is running, Nobody is using ur application but the server is running for 24/7 so 
+	as no client is using the application AWS will charge the amount even though whether customers are using the application or not AWS will not consider it will charge the bill
+
+
+Note: AWS is providing EBS(ElastciBeanStack) it provides platform to run our code
+	if u go for IAAS approach u need to manage the infrastructure to run ur application but in the 2nd approach AWS will manage the infrastructure just we should upload/deploy code
+	EBS will AWS Resources and those Resources are chargable and 24/7 billing will be
+	Now i have uploaded one application into EBS iam not going to bother about infrastructure to my application, just i have uploaded my code into EBS then AWS is preparing my platform to run my application
+	in order to prepare the platform AWS is creating EC2,server,loadbalancer,autoscalling,.. now the resources which it is using for preparing the platform those resources are chargable
+	Now i have uploaded my code into EBS 24/7 my applicattion is running, even though my application user may access or will not access AWS will not considered it will charge for the resources because the platform was running
+	Here bill will be generated based on PayAsYouGo Model(for how any hours the server is going to run that many hours u need to pay)
+
+	Assume u have taken the platform in the AWS EBS platform u have deployed ur application, ur application is running in the EBS but Nobody is using ur application month completed 
+	as no client is using the application AWS will charge the amount even though whether customers are using the application or not AWS will not consider it will charge the bill
+
+Note : For Approach1  & Approach2  whether ur business/project/application is running or not u have to pay money for the AWS for every hour
+	because those models(IAAS PAAS ) are running on PayAsYouGo model
+	so if u go for PayAsYouGo model ultimately AWS will get more money it is not going to consider whether customers using the application or not, it is going to charge it.
+
+ServerLess Computing ( Lambdas)
+++++++++++++++++++++++++++++++++
+
+To Overcome the problems of PayAsYouGo model, AWS introduced Serverless Computing
+
+->Serverless Computing means we no need to manage the servers, AWS will manage the servers to run the application.
+-> Already PAAS platform is managing the servers then y again Serverless Computing came into market, what is the difference between PAAS & Serverless Computing? means Billing is the difference
+	Serverless Computing going to work based on PayForUse concept (i.e if project code is executed then only pay the money if the code is not executed then no need to pay the money for the AWS
+-> In AWS we can implement Serverless Computing using AWS Lambdas
+-> AWS LAmbdas works based on PayForUse Model
+
+Q: why we are going for LAmbdas ?
+A: The main reason is Serverless Computing
+
+-> Assume that my iam deploying my application in the AWS by using Serverless Computing , today nobody used my application , my application did not recieved single request also then no need to pay for AWS
+   Now one person accessed my application  my code executed for 1min then for AWS i need to pay for 1min only that is what the serveless computing billing will be excuted on the code execution time.
+
+
+->So in Lambda for every request one container will be created  to execute our code/application so how much time the code/applicationi will execute that much time the container is going to execute u have to pay the money for execution time  once the request processing completed that container will be deleted
+-> Of we use Lambda, we can run the code without thinking about servers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

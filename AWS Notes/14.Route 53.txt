@@ -1,0 +1,89 @@
+Route 53
+++++++++++
+
+-> Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service.
+
+-> It is used to map application domain with IP addr / LBR URL / S3 Bucket URL
+
+							   Route 53
+			www.ashokit.in ===============> https://192.168.1.1/ (EC2 IP)
+
+								 Route 53
+			www.facebook.com ===============> https://facebook.com.alb.aws.amazon.com/ (LBR URL)
+
+								 Route 53
+			www.ashokit.org  ================> S3 Bucket URL 
+
+
+		S3 Bucket URL : http://ashokit.org.s3-website.ap-south-1.amazonaws.com/
+
+
+-> Using Route 53 service we can map our application domain name to EC2 instance IP address
+
+-> Using Route 53 service we can map our application domain name to Load Balancer URL
+
+-> Using Route 53 service we can map our application domain name to S3 Bucket URL
+
+--------------------------------------------------------------------------------------------------------
+Steps to configure DNS name using Route 53 service
+------------------------------------------------------------------------------------------------------
+
+1) Goto Route 53 service
+
+2) Register Domain in AWS
+
+Note: Based on domain extension charges will be applied
+
+			.com ===> 12 $
+
+			.link ===> 5 $
+
+3) Go to billing dashboard and complete payment for the domain you have purchased
+
+Note: When we purchase domain we will get one hosted zone with Name servers by default
+
+Note: Domain Name also will get Name Servers by default
+
+Note: "Domain Name" Name Servers and "Hosted Zone" Name Servers should be same
+
+Note: Name servers are used to route the traffic to Domain Name
+
+4) Go to hosted zone and create a new record
+
+			Record Name : Leave it blank
+
+			Record Type : keep it default value (A - Route to ipv4 or Aws resources)
+
+			Value : Select Alias
+					Choose Endpoint as "Alias to s3 website endpoint"
+					Choose S3 Bucket Region
+					Choose S3 Endpoint
+					Click on Create Records
+
+Note: Domain Name and S3 Bucket Name should be same
+
+Note: We can route the traffic to Specific IP / Load Balancer URL / S3 Endpoint etc..
+
+Note: Here i am using S3 Endpoint URL to route the traffic
+
+5) Once Record is created wait for sometime (2 to 3 mins)
+	
+6) Access Domain Name URL in browser  (www.ashokit.org)
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,148 @@
+
+Docker
++++++++
+
+-> Docker is a containerization tool
+
+-> It is used to package our application & application dependencies 
+
+-> Using Docker, we can easily run our application in multiple environments
+
+
+++++++++Install Docker in Amazon Linux++++++++++++
+
+$ sudo yum update -y
+$ sudo yum install docker -y
+$ sudo service docker start
+
+# add user to docker group by executing below command
+$ sudo usermod -aG docker ec2-user
+
+$ docker info
+
+#Restart the session
+$ exit
+
+Then press 'R' to restart the session (This is in MobaXterm)
+
+++++++++++++++++++++Docker Commands+++++++++++++++++++
+
+#see docker info 
+$ docker info
+
+# To see docker images execute below command
+$ docker images
+
+# Pulling hello-world docker image 
+$ docker pull hello-world
+
+# see docker image 
+$ docker images
+
+# Running hello-world docker image 
+$ docker run hello-world
+
++++++++++++++++++++++++Working with Spring Boot Application Using Docker++++++++++++++++++++++++
+
+# pulling docker image from docker hub
+$ docker pull ashokit/spring-boot-rest-api
+
+# Seee docker images after pulling
+$ docker images
+
+# Run docker image in detached mode
+$ docker run -d -p 9090:9090 ashokit/spring-boot-rest-api
+
+			Note: host-port:guest-port
+
+Note: Allow Custom TCP Port with Range as 9090 for all traffic in EC2 Security Group
+
+# To See runing docker containers
+$ docker ps
+
+
+Access Application in browser
++++++++++++++++++++++++++++++++
+URL : http://13.232.179.189:9090/welcome/Mahesh
+
+
+ECS (Elastic Container Service )
+++++++++++++++++++++++++++++++++++++++
+
+Note: What are the things we are doing manually like downloading the docker, service start the docker, add the permission for user to run the docker, pull the docket image and run the docker image
+	all these things we are doing manually,
+	can i say that we are doing all these work manually, we are installing docker in our linux machine,
+	 i have docker image in the docker hub to run this image we need to install the docker software and we need to pull the image and we need to run the docker image  by using port mapping these all the steps we need to do manually	
+	
+	So Inorder to overcome this manuall steps AWS provided on service called ECS (Elastic Container Service )
+	that means if u have docker image u can directly run the docker images by using ECS, u no need to setup the docker,no need to execute commands,no need to pull the images,no need to create the container
+	everything will be taken care by ECS in AWS
+
+Amazon ECS makes it easy to deploy, manage and scale Docker Containers running applications,services, and batch processes. Amazon ECS places containers across your cluster based on your resources needs and is integrated with familier features like 
+Elastic LoadBalancing,EC2 security, EBS Volumes and IAM roles.
+
+what AWS people are telling is y u need to store ur images in dockerhub u can store ur images in Amazon itself iam providing one service called ECR(Elastic Container Registry)
+ECR which is used to store ur images once u store the images in the ECR then u can pull the images from the ECR then u can run the image by using ECS.
+
+Soo now u have 2 options i.e 
+	1) you can store ur image in the DockerHub
+	2) you can store ur image in the ECR also
+so when u go for ECS u can pull the image wherever u have and u can execute ECS
+
+
+Working with AWS ECS Service
++++++++++++++++++++++++++++++
+
+-> ECS stands for Elastic Container Service
+
+-> Using ECS service we can run conatiners (Ex: Docker Container)
+
+
+Steps to setup application using ECS service
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1) Take docker image name from docker hub
+
+Image Name : ashokit/spring-boot-rest-api
+
+2) Go to AWS ECS Service and click on 'Get Started' button
+
+3) Click on 'Configure' button in 'Custom Card'
+
+	Enter Container Name : ashokitcontainer
+	Configure Docker Image Name : docker.io/ashokit/spring-boot-rest-api
+	Configure Port Mapping as : 80
+
+4) Go to Next Screen (Keep LBR as NONE)
+
+5) Configure Your Cluster (Give some name for that)
+
+6) Then Click on Create Cluster (it will complete 9 steps, we have to wait until 9 steps completed)
+
+7) Go to security group of our ECS Cluster and configure application port number 9090 in Inbound Rules
+	
+Note: Our Docker image app having port as 9090
+
+8) Click on View Service
+
+9) Go to task tab (You can see task running)
+
+10) Click on Task id , you can see public ip to access our application running in AWS ECS
+
+URL To access : http://public-ip:9090/welcome/Raju
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

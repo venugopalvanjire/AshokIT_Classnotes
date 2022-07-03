@@ -1,0 +1,38 @@
+
+The Basic Flow of the Devops process
++++++++++++++++++++++++++++++++++++++++++
+
+Developers are using Maven Tool to create the project,to download the dependencies,to compile the project,to perform the unit testing,to do the packaging.
+once this coding is completed developere are going to keep the code in the GitHub Repository so in the GitHub Repository all the developers source code will be available, code integration and code monitored access will be available in the github Repository
+once the code is available in the GitHub repository we need to Deploy the code into AWS cloud, in the AWS Cloud i have taken EC2 instance, in that EC2 instance i have installed a webserver to run my application
+now code is available in the github that code i have to run in the webserver for that iam going to use one centralized software called Jenkins
+Jenkins is CICD software, the duty of jenkins software will interact with the github repository to download/take the source code,once u have taken the source code from the github repository we need to compile the source code & we need to package the source code
+for that purpose we are going to integrate Maven with the Jenkins, Here developers will do the compilation in their system, whenever u download the souce code by Jenkins u should also compile the source code & u should also package the source code to deploy
+and also u should integrate SonarQube software with jenkins to check the code Qulity Analysis purpose 
+Finally my Jenkins software will take the packaged code whatever the package is created by maven that code package will be deployed into cloud server and finally my application will run in the webserver, This is called as Build&Deployment process
+
+To automate the Application Deployment Process we are going to use Jenkins, so here in jenkins Build&deployment will happen by using jenkins
+How build&deployments will happen in Jenkins means u can do the build&deployment by running the jobs in Jenkins
+Can i achieve CICD? what is CI & CD
+CICD nothing but for ex the developer modified code & commited the code into repository whenever the code is commited to repository immediately my Jenkins job is going to trigger & my jenkins is going to do the build & deployment 
+so when developers modify something in the github immediately jenkins will detect that change and deploy the latest code in the server that is called continuous integration & continuous deployment
+Generally u can do the deploment manually their is a job in jenkins  when u run this job then build will happen & deployment will happen manully u need to run that job, in that job some script will be available
+	
+
+Q: As a DevopsEngineer what u r going to so in the company tommorrow?
+
+A:      You are going to setup the infrastructure in the cloud,
+	u are going to work with the jenkins software,
+ 	u are going to create the jenkins job,
+	u are going to integrate the jenkins with the maven to perform the build process,
+ 	u ar going to integrate the jenkins with the github to download source code,
+ 	u are going to integrate jenkins with the SonarQube to perform the code quality analysis,
+ 	u are going to write the script in the jenkins to deploy the code in the AWS Cloud
+All these u are going to perform as a Devops Engineer
+Developers will be available & Operations will be available so by using this DevopsCulture we are going to collaborate with development work and Operations work in the project that is called Devops
+
+Build: means Compiling the source code and packaging the source code
+Deployment : means take the package and deploy into server
+CICD: means when the code is modified then immediately it should deploy, this CICD process is configure in the Jenkins we are going to enable the webhooks concept
+webhooks concepts: means it is used to monitor the Git Repository, whenever the code ismodified in the git repository u take the code from the git repository u package the code deploy the code in the server.
+

@@ -1,0 +1,239 @@
+--------------------------------------------------------------------------------------------------------
+Load Balancing in EC2
+--------------------------------------------------------------------------------------------------------
+
+-> Load Balancing is the process of distributing application load to multiple servers
+
+-> Instead of deploying our application in one server, we will deploy in multiple servers
+
+-> All the servers will be connected to Load Balancer
+
+-> LBR will distribute traffic to servers using Round Robin algorithm
+
+-> To run web applications we will use webserver
+-> webserver we will install in virtual machine(EC2 instance)
+-> Inside webserver we will deploy our web application
+-> users will send request to webserver to access web application
+-> webserver is responsible to process user request and send response
+-> If multiple users access our web application at a time then load will increase on webserver
+-> If Load increases, then server will take more time to process users requests and sometime server might get crashed
+
+To decrease burden on the server we will use Load Balancing..
+
+-> To improve performance of our application, we will deploy the application in multiple servers
+-> All the servers will be connected to LoadBalancer
+-> LoadBalancer will distribute the load to all servers using Round Robin Algorithm
+-> User request will be recieved by LoadBalancer and it will be given particular server to handle
+-> If any server crashed, remaining servers will handle the requests
+
+
+Process to Setup Load Balancer
++++++++++++++++++++++++++++++++++
+
+
+1) Create Security Group with below Protocols in Inbound Rules
+
+		SSH - 22
+		HTTP - 80
+
+	SGName : ashokit_Security_group
+
+
+2) Create first EC2 instance (EC2-1) and Host Web Application
+
+Note: Configure below script as 'User Data' at the time of launching the instance
+
+#! /bin/bash
+sudo su
+yum install httpd -y
+cd /var/www/html
+echo "<html><h1>Life Insurance Server - 1</h1></html>" > index.html
+service httpd start
+
+3) Create second EC2 instance (EC2-2) and host web application
+
+Note: Configure below script as 'User Data' at the time of launching the instance
+
+#! /bin/bash
+sudo su
+yum install httpd -y
+cd /var/www/html
+echo "<html><h1>Life Insurance Server - 2</h1></html>" > index.html
+service httpd start
+
+4) Create Load Balancer ( ALB ) and attach both EC2 instances as one target group
+
+		Scheme : Internet facing
+
+		Select : New Target Group (Add both EC2 instances)
+
+		Listner : HTTP : 80
+
+		Security Group : ashokit_Security_Group
+
+Note: Once Load Balancer created, DNS will be generated (it will take upto 3 mins)
+
+
+5) Send a request to Load Balancer DNS URL and see the response 
+
+ (it should distribute traffic to both servers)
+
+
+Note
+++++++++++
+1) DELETE Load balancer
+2) Delete EC2 instances
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Types of Load Balancers in AWS
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+-> We have 4 types of Load balancers in AWS
+
+1) Application Load Balancer
+
+2) Network Load Balancer
+
+3) Gateway Load Balancer
+
+4) Classic Load Balancer (Will be retiering on Aug 15, 2022)
+
+
+-> When you want to deal with HTTP and HTTPS requests then Application Load Balancer is recommended. Application Load Balancer supports path based routing.
+
+-> When you have static ip address and wants to process millions of requests per second then go for Network Load Balancer (This gives ultra performance)
+
+-> When your application dealing with third party services then go for Gateway Load Balancer
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+-> In realtime, project will be developed in 2 ways
+
+1) Monolith Architecture based project
+
+2) Microservices Architecture based project
+
+
+-> Monolith Architecture means all the fuctionalities will be developed in single project
+-> If we change some functionality code then it may effect on another fucntionality code
+-> The maintenence will become very difficult when we follow monolith architecture
+
+-> To overcome the problems of Monolith Architecture, now a days people are using Microservices Architecture in the Realtime.
+
+-> In Microservices architecture, project functionality will be divided into multiple services
+-> Every service is a seperate project
+-> When we change functionality of one service it will not effect on another service
+-> Every service will be running as a seperate project in seperate server
+-> Easy to maintain because if u develop our functionality using this microservices architecture then maintainanceof the project will become very easy.
+   Tomorrow if u want to change a functionality of microservice happily u can change on that particular service thier will not be impact on other remaining services because everything is separate project
+
+TargetGroup : means set of servers belong to one project
+
+((explaination about microservices architecture paint diagram
+	i want to run server1,server2,server3 all these 3 servers are for flights application. these are called flights targetGroups ,, if i take only 1 servers for flights booking application then all the traffic will go to one server burden will increase so iam taking here multiple servers
+	For hotels booking also i will take 3 servers i.e server1,server2,server3 these are called as hotels targetGroups
+	For Trains booking also i will take 3 servers i.e server1,server2,server3 these are called as trains targetGroups
+	Total 9 servers available i all the servers project is not same bcoz in flights project is running in 3 servers(i.e flights targetGroup), Hotels project is running in 3servers(i.e hotels targetGroup), Trains project is running in 3servers(i.e trains targetGroup)
+	but for all these 3 projects UI is same ... now all these targetGroups are connected to LoadBalancer
+	User is sending a request to our application  from the UI request coming to LoadBalancer ..Earlier for monolithic when request comes to LBR, LBR sending the 1 request to 1st server, 2request gng to 2nd server, 3rd request gng to 3rd server, 4th request go to 4th server like that it is doing distribution by round robin algorithm
+	but for microservice i cannot do like 1st request to 1st targetGroup, 2nd request to 2nd targetGroup, 3rd requst to 3rd targetGroup bcoz it depends on user some users may book flights, some users may book hotels, some users may book trains 
+then  how ur LBR understand this user is booking a trians ticket or flight or hotel ... so thats where we are configuring the Routing  in the LBR 
+Routing in LBR means if the request is having /flight then send that to flights targetGroup. flights targetGroup is having 3servers one of the server will handle the request 
+		     if the request is copming with /hotels then send it to hotels targetGroups. hotels targetGroups is having 3servers one of the server will handle the request
+		     if the requesst is coming with /trains then send it to trains targetGroups. trains targetGroups is having 3servers one of the server will handle the request
+This is called Routing we need to do in the LoadBalancing this is called path based Routing in LBR when u have ur microservice architecture then u should go for this kind of loadbalancing
+This Path Based Loadbalancing is supported by Application Load Balancing.))
+	
+========================================================================================================================================
+-> Create Security Group with SSH-22 and HTTP-80 Protocols
+
+1) Create EC2 Instance-1 For Flights (Server-1) 
+
+#! /bin/bash
+sudo su
+yum install httpd -y
+cd /var/www/html
+echo "<html><h1>Flights Server - 1</h1></html>" > index.html
+service httpd start
+
+2) Create EC2 Instance-2 for Flights  (Server-2)
+
+#! /bin/bash
+sudo su
+yum install httpd -y
+cd /var/www/html
+echo "<html><h1>Flights Server - 2</h1></html>" > index.html
+service httpd start
+
+
+-> Create "Flights Target Group" with Flights EC2 instances
+ 
+3) Create EC2 instance-1 for Trains (Server-3)
+
+#! /bin/bash
+sudo su
+yum install httpd -y
+cd /var/www/html
+echo "<html><h1>Trains Server - 1</h1></html>" > index.html
+service httpd start
+
+
+4) Create EC2 Instance-2 for Trains (Server-4)
+
+#! /bin/bash
+sudo su
+yum install httpd -y
+cd /var/www/html
+echo "<html><h1>Trains Server - 2</h1></html>" > index.html
+service httpd start
+
+
+-> Create "Trains Target Group" for Trains EC2 instances
+
+
+
+-> Create Application Load Balancer 
+
+-> Configure Routing in Application Balancer to route the request to "Target Group" based on URL
+
+	(At the time of LBR creation choose existing target group as Flights-TargetGroup)
+
+-> AFter Load Balacner Created We need to configure Routing
+
+	(Go to LBR -> Listeners -> Click on View/Edit Rules -> Click on + Symbol -> CLick on Insert Rule -> Add the rule)
+
+
+Note: In this scenario i have added query string rule
+
+	Rule-1 ==>	Key : ticket, value = flight ==> Forward it to "Flight-TargetGroup"
+
+	Rule-2 ==> Key : ticket, value = train ==> Forward it to "Train-TargetGroup"
+
+
+Default ALB URL : http://makemytripalb-1456632845.ap-south-1.elb.amazonaws.com/
+
+
+URLS with Query String
++++++++++++++++++++++++
+URL-1 : http://makemytripalb-1456632845.ap-south-1.elb.amazonaws.com?ticket=train
+
+URL-2 : http://makemytripalb-1456632845.ap-south-1.elb.amazonaws.com?ticket=flight
+
+
+
+Note
++++++
+-> After practise Delete Target Groups, LBR and EC2 instances to avoid billing
+
+
+
+
+
+
+
+
+
+
+

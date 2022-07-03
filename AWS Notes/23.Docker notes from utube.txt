@@ -1,0 +1,147 @@
+
+	Docker
++++++++++++++++++++++++++
+
+-> Docker is a universal platform multiple project which are developed by using multiple technologies also can use  docker to simplify thier life
+
+-> To develop one application with only one technology is not enough multiple technologies required like frontend,backend,databse,server,repositories this is called Application development stack
+   Application Development stasck represents what are the technologies,tools that we using to develop our application.
+
+-> Setting up the environmnt for application development/execution is very difficult task in the industry, for a developer or for a tester or for a devopsEngineer or for a client
+   y because our application is not develooped by one technology, our application is developed with several components frontend components will be available,backend components will be available,database components will be available
+   dependencies will be available,libraries will be available, if all those things are supported by our system then only u can run the application in the system, u need to setup all those in ur system then only u can develop the application & run the application 
+   ok iam a developer iam having 8years experience if u give me 2/3 days time i can setup environment in my system but what about tester, what about devops people, ok assume tester can do the setup,devops engineer also can so assume, but what about client he cannot do the setup
+   suppose if u want to do the setup manually it is going to take lot of time and u should be expertise in infrastructure setup so setting up the environment/infrastructure is very very difficult that is the real problem we are facing in the industry  
+   y because whatever the code which is runnin in my computer i should be able to run the code in the other system also very easily 
+
+   For Ex i have developed one application with  below technologies	
+	frontend with HTML, CSS, JS & ANGULAR
+	Backend with java 1.8v
+	MySQL DB with 56v
+	Maven Build Tool
+	kafka with 3.3v
+	Redis with 2.1v
+	Apache tomcat with 8.5v
+	
+   so with the stack my project was developed and finally my project is packaged in the form of war file, now iam able to this in my system, if i give this war file to my wife can she run this application, she is not from software industry she cannot
+   i have given this application to my client can he run this application he cannot run.
+   now actually project development completed we need to deliver project to client, devops people is responsible to deliver project to client, now client told that my project should run in  computers( machine1,machine2,machine3,machine4,machine5)
+   machine1 is using windows, machine2 is using linux, machine3 is using unix, machine4 is using macOS, machine5 is using solar like this client having different machines now u need to deploy the application these machines
+   now can i run the war file directly in the machines or do i need to setup the infrastructure, yes i need to setup the above stack infrastructure in the machines.
+   now tell me that if we go for this approach setting up infrastructre is their any problem ? yes manually we need to setup and it is very complex to setup and it is a time taking process and thier is a chance of doing the mistakes
+   you need to setup the infrastructure whatever the softwares u are having the softwares u need to setup which are compatible with windows OS, here u need to setup which are compatible with linux OS,likewise unix,mac os, solar os because 
+   everycomputer is having different OS as per the OS u need to setup the softwares  the versions which we are using on compatible with windows  may not compatile for linux, may not compatible with unix,mac,solar so can u see any problem here 
+   Today client gave 5 machines tommorow client told to deploy the project in 100 machines can u doo the instrastruce setup for 100 computers so do u understand the problem now 
+   yes setting up the environment/infrastructure to run the application is the problem y because our application is not developed by one technology, our application development stack having multiple technologies,components
+
+
+   In order to simply this environment setup people came up with virtualization concept
+
+	why virtualisation came means ?
+	I want to run my project in multiple Operating system, to run my project in multiple ooperating systems i dont want to purchase the computers let us do one thing within one operating system lets install hypervisor software and do virtualisation that means
+        i will create linux machine,unix machine,mas os machine, solar os machine  within the windows computer i will install all these with support of hypervisor so by using hypervisor u can install othe operating systems also which is called as virtualisation concept 
+	But if u go for virtualization their are some problem will face 
+
+	Advantages & Disavantages of Virtualisation?
+
+ This Virtualisation is not Recommended because  within one operating system  we are installing other operating system which is going to decrease the performancce of the system
+
+
+Conclusion :
+
+	-> Application will use multiple softwares/technologies/tools/Libraries
+	-> In order to develop/run the application we have to setup infrastructure
+	-> setting up infrastructure is challenging  task & error prone
+	-> To simplify infrastructure  we need to follow  Virtualization Concept
+	-> With Virtualization support we can install Guest OS(other diff os)  in Host OS
+			(Installing Linux OS in windows OS using hypervisor)
+	-> With concept our machine will become unstable
+
+	-> Performance of the machine will become slow if we  use the VM concept
+
+	-> To avoid the  problems of Vertualization concept Containerization came into picture
+
+
+Containerization
+++++++++++++++++++++
+
+	Now i want run applications with  different operating systems, Do i need to operating systems? 
+	No because we are going to create 3 containers
+
+	Container means it is package like a box which will contain everything(like ,java,MySQL,kafka,tomcat....) which is required to run your application we are going to keep in container
+	and we are going to run that container in our operating system
+
+	For ex there are 3 application , application 1 is available i want to run this application in the linux machine which is java and another application 2  which is python application i want to run in my machine and 
+	another application 3  which is related to mac OS which is developed by using node.js i want to run in my machine so can i run this 3 different application with 3 different operating systems within one operating system(HOST OS)
+	yes u can do that by using containerization so here only Host operating system is installed but iam able to run 3 different applications which are developed by 3different technologies
+
+	what is the difference u have seen virtualization to containerization ?
+	 In Virtualization we have 3 different operating systems and In the Containerization only 1 Operatin system which is going to run multiple applications as a containers. 
+
+	Inside the Container we can have a operating system, we can have the softwares which are required, we can have the configurations which are requiured. whatever is required for our application everything we can keep inside the container.
+
+
+	For Ex: i have developed one application with  below technologies	
+		frontend with HTML, CSS, JS & ANGULAR
+		Backend with java 1.8v
+		MySQL DB with 56v
+		Maven Build Tool
+		kafka with 3.3v
+		Redis with 2.1v
+		Apache tomcat with 8.5v
+		war-file
+
+	This is the technology stack of my application , Instead of installing this technology stack in every project what i will do is, i will write/mention all the stack requirements in the file, 
+	i.e in the file i will write/mention as i need linux, i need tomacat, i need java, i need mysql, i need angular everything iam going to write in text file once we have this text file I will build/package file i.e all the softwares/component which are required for project and if i build it Image will be created
+	(Image means it is a package which contains the components/softwares which are required to run my application ) i.e we are going to build one Image, whenever u run that Image it is going to create Container in that everything will available
+	 it is going to install all the technologies,libraries,softwares,components everything to run our application.
+	
+	Now client told that i have 100 systems can u run the application in 100 systems then now Do i need to setup the infrastructure or just need to  run the image here
+	yes now just i can run the Image in multiple computers because infrastructure setup is already available in the Image , so when u run the Image that image is going to run as a container this container has everything which is required  to run our application. 
+	
+	Q: Setting up the infrastructure manually is easy or Running the Image is easy ?
+	A: Running the Image is Easy i.e called containerization of our application 
+	
+
+I have created a project as a developer i want to deploy my project in the client system, i need to setup the infrastructure in the client so in order to setup infrastructure manually i will a Container, Container will setup everything which is required to run my application
+Docker is a Containerization platform tool which will setup the infrastructure to run ur Application & which is used to simplify Deployment of ur application
+Docker is going to make our life easily because Docker will takecare of the infrastructure which is required for my project 
+In order to simplify the application deployment process we are using Docker, if we use docker in the project  devops engineers job will be very very easy because they are responsible to setup infrastructure, if we have given the infrastruture as a file then they just need to run the image thats it.
+
+Suppose assume that iam working in the project my project is using all the softwares  u newly joined in the project do u need to setup the infrastructure 
+No need u just take the Image from the exixting developer and u run the Image, when u run the Image in ur system container will be created that container will setup the infrastructure to run the application within 1 min u can start the project
+because container will takecare of everything which is required to run ur project, this container we can run in any computer because container will setup all the softwares for my application, no need bother about softwares installation,configuration,infrastructure setup.
+
+The infrastructure whatever we are writing in the file that is called as Docker-file & the Image which is created is called Docker-Image
+Docker-Image contains infrastructure details, whenver u run this Image Docker-Container will start. This is the Execution flow of the Docker
+
+Q: What is Docker?
+A: Docker is a platform for packaging,deploying and running applications
+   Docker enables you to seperate your applications from your infrastructure so you can deliver software quickly
+   Docker packages software into standardized units called containers that have everything the software needs to run including libraries,system tools,and runtime
+   By taking advantage of Docker's methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production
+   
+
+
+
+Working with Docker
+++++++++++++++++++++++++
+
+1) Download & install Docker in your machine based on your OS
+
+2) Run the Docker Engine
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

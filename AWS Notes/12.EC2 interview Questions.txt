@@ -1,0 +1,151 @@
+1) What is EC2 ?
+
+-> EC2 is very famous and demanded service in AWS
+-> EC2 stands for Elastic Compute Cloud
+-> Using EC2 service we can create Virutal Machines
+-> In EC2 terminology every machine is called as one Instance
+
+	Computer/Machine/Server/VM = Instance
+
+-> EC2 divided instances into families (we are using t2.micro which is free tier)
+-> EC2 instances are free for 1 year and 750 hours for every month
+-> Minimum Billing period it will consider as 1 hour
+-> To Launch EC2 instances we have AMI (Amazon machine Image)
+-> Image means pre-configured computer with OS
+-> We can also create our own Images for EC2 instances.
+-> If we use Amazon Linux, we will get 8 GB by default (EBS root volume)
+-> We can't dettach EBS root volume from EC2 (Its mandatory)
+-> We can add additional EBS volume for EC2
+-> EBS additional volume size is 16 TB (For free tier 30 GB)
+-> We can attach/dettach EBS additional volume from EC2 instance
+-> Volume backup is called as Snapshot
+-> Volumes are Availability Zone specific
+-> Snapshots are Regional scope
+-> For EC2 instance we will add Security Groups
+-> Security Groups contains Inbound rules & Outbound rules
+-> We can add multiple security groups for EC2 instance
+-> AWS providing security for EC2 instances using Key-Pair
+-> AWS will keep public key and it will give private key for us
+-> While Launching EC2 instance we can add userdata (bootstrapping scripts)
+-> User Data script will execute only for first time
+-> If EC2 instance in Running State it will consider for billing
+-> IF EC2 instance is stopped or terminated then it will not consider for billing
+
+
+2) How to connect with EC2 instance which is having Linux OS?
+-> We can use putty/mobaxterm software with SSH protocol to connect with EC2 instances
+
+3) How to connect with EC2 instance which is having Windows OS?
+-> We can use RDP client to connect with windows instance
+
+4) What is Load Balancer?
+-> Load balancer is used to distribute the load to multiple servers
+
+5) What are the load balancers available in AWS?
+
+-> In AWS we have 4 types of Load Balancers
+
+1) Application Load Balancer (HTTP & HTTPS requests)
+2) Network Load Balancer  (TCP, UDP ) - Superfast performance
+3) Gateway Load Balancer - Third Party Appliances
+4) Classic Load Balancer (Will retier on Aug'15th 2022)
+
+6) What is Path Based Routing in Load Balancing?
+
+-> Path based routing means forwarding the request to particular target group based on URL
+
+		/flights ===> Flights-TargetGroup
+	
+		/hotels ===> Hotels-TargetGroup
+
+-> Only Application Load Balancer will support Path Based Routing
+
+
+7) What type of Volumes available in AWS?
+
+-> In AWS we have EBS volumes to store data permanently
+
+-> We have below types of EBS volumes
+
+1) General Purpose
+2) Provisioned IOPS
+3) Throughput 
+4) Cold
+5) Standard Magenetic
+
+8) What is Target Group ?
+
+-> Target Group represents Logical Unit of instances
+-> ALB will distribute load to target group based on listener rules
+
+9) What is Autoscaling?
+-> Adding and removing instances based on demand is called as Autoscaling.
+
+
+10) Can you tell me which protocols and port numbers you have used ?
+
+RDP : 3389
+SSH : 22
+HTTP : 80
+HTTPS : 443
+
+11) Can we attach one volume to multiple EC2 instances?
+-> If it is IOPS (io2) volume then we can attach otherwise we can't attach
+
+12) Can we attach snapshot to EC2 instance?
+-> We can't attach snapshots to EC2 instances.. From snapshot we can create volume and then we can attach volume to EC2 instance
+
+		Volume <----> Snapshot <-----------> volume
+
+13) Can you explain EC2 instances types ?
+
+On Demand Instances
+Reserved Instances
+Spot Instances
+Dedicated Host instances
+
+14) What is Launch Template in EC2?
+-> Launch template represents configuration for EC2 instance. It is used to create Augo Scaling group.
+
+
+15) How many types of IP's available in EC2?
+
+-> In AWS we have 3 types of IPs
+
+private ip : It is static ip and it is mandatory for EC2 instance (for internal purpose)
+
+public ip : It is dynamic ip and using this we can connect to EC2 instance.
+
+elastic ip : It is static ip and we can use this to connect with EC2 instance.
+             (5 EIPs are free, we have to keep them in use)
+
+16) What is Region and AZ in aws?
+
+-> AWS providing global infrastructure using Region and AZ.
+-> 26 Regions and 84 AZ
+-> 1 Region can have multiple AZ's
+
+17) What is Data Center?
+
+-> It is collection of servers with network and power.
+-> One AZ is called as one data center
+-> In india we have Mumbai Region with 3 AZ's
+-> Mumbai region name is ap-south-1
+
+
+18) How to install softwares in EC2 instance?
+-> using yum install command 
+
+Ex: sudo yum install httpd -y (Amazon linux)
+Note: apt for ubuntu
+
+19) How to mount EBS volume to directory ?
+
+->  $ mount /dev/xvdf /newdirectory
+
+20) How to display Instance volumes ?
+
+-> using 'lsblk' command we can display volumes
+
+21) How the application will be deployed in the server
+-> Application will be deployed in the form of war file

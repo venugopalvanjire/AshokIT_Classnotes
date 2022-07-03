@@ -1,0 +1,46 @@
+Deploying web application using EC2 VM
+---------------------------------------
+
+-> The applications which we are accessing through internet are called as web applications
+
+-> Web applications are used for Customer 2 Business Communications
+
+		Ex: Google, Gmail, Facebook, Linkedin, Naukri, IRCTC etc.....
+
+-> Web application nothing but collection of web pages
+
+-> Web application will be deployed in webserver
+
+-> Users will send request to webserver to access web application
+
+
+Steps to host a website in EC2 instance
+++++++++++++++++++++++++++++++++++++++
+1) Login into AWS Cloud Account
+
+2) Launch EC2 Instance ( AMI : Amazon Linux )
+
+3) Connect to EC2 instance using Putty / MobaXterm
+
+4) Install HTTPD Webserver in EC2 instance
+
+5) Setup Website in EC2 instance
+
+6) Configure Security Groups
+	(SSH - 22 for admin access & HTTP - 80 for users to access our website)
+
+7) Access Website from Browser using EC2 Instance Public IP
+
+
+Commands To Execute
+-------------------------
+$ sudo su
+$ yum update -y
+$ yum install httpd -y
+$ cd /var/www/html
+$ echo "Welcome to Ashok IT Website..!!" > index.html
+$ service httpd start
+
+
+Note: After this excersise completed then STOP your EC2 instance.
+

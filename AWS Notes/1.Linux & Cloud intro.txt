@@ -1,0 +1,1757 @@
+dDevOps with AWS
+++++++++++++++++
+
+Pre-Requisites : Nothing
+
+Duration : 3.5 Months
+
+Start Date : 09-Jun-2022
+
+Class Timings : 8:00 AM - 9:15 AM (IST)
+
+Mode : Online (Mon - Sat)
+
+Trainer : Mr. Ashok (9+ Yrs Exp)
+
+Course Content
+++++++++++++++
+
+1) DevOps Introduction ( What is DevOps, SDLC, Waterfall, Agile )
+
+2) Linux with Shell Scripting
+
+3) AWS Cloud (15+ Services)
+
+4) DevOps Tools (10+ Tools)
+			(Git Hub, Maven, Jenkins, SonarQube, Ansible, Terraform, Docker, K8S, ELK...)
+
+5) Projects
+
+6) Interview Preparation
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ DevOps Introduction
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+=> DevOps = Development + Operations
+
+=> DevOps is a process which is used to colloborate Development and Operational works in Software Project Development Lifecycle (SDLC)
+
+=> DevOps is a culture 
+
+=> By using DevOps culture we can deliver the project to client quickly with quality
+
+++++++++++++++++++++++++++++++
+Development Team (Programmers)
+++++++++++++++++++++++++++++++
+
+-> Collect Requirements
+-> Analyze Requirements
+-> Planning (Designing)
+-> Implementation (Coding)
+-> Testing
+-> Code Integration
+
+++++++++++++++++++++++++++++++++++
+Operations Team(Support Engineers)
+++++++++++++++++++++++++++++++++++
+-> Setup machines
+-> Setup Network
+-> Setup Servers
+-> Setup Database
+-> Prepare Infrastructure for Project execution
+-> Take project code from Repository (GitHub)
+-> Perform Project Build (Compile)
+-> Package Project (jar or war)
+-> Deploy Project to Server
+-> Deliver Project to Client
+
+-> Development is doing by one team and Operations are doing by another team. 
+   There should be colloboration between Development Team and Operations team to Deliver Project to client quickly with Quality thats where DevOps culture came into market.
+
+
+-> If there is no communication between Development and Operations teams then project delivery will become slow and client will loose his business.
+
+++++++++++++++++++++++++++++++++++
+Infrastructure Setup
+++++++++++++++++++++++++++++++++++
+
+-> To run a project we need to prepare environment.
+
+-> Environment means the platform which is used to run our project.
+
+-> Computers
+-> Network
+-> Power
+-> Air Conditioner
+-> Web Servers 
+-> Database Servers
+-> Storage
+-> Security
+
+-> Some companies will purchase and setup infrastructure that is called on On-Premises Infrastructure.
+
+-> If we setup on-prem infrastruture then we have to purchase, setup & manage everything required for project.
+
+-> It requires lot of money and time.
+
+-> Instead of setting up on-prem infrastructure we can go for "Cloud Infrastructure".
+
+-> If we go for Cloud Infrastructure we can take all the softwares for Rent then Cloud Provider will manage infastructure.
+
+-> We just need to use infrastructure and pay money for our usage.
+
+Note: AWS is one of the leading Cloud Provider available in the market
+
+
+++++++++++++++++++++++++++++++++++
+Linux
+++++++++++++++++++++++++++++++++++
+
+-> Linux is free and opensource operating system
+
+-> In realtime, We will use Linux OS to setup Infrastructure
+
+-> We will use Shell Scripting to automate our regular work
+
+	(server restart, data backup, logs backup, temp files delete etc...)
+
+
+=> After Learning Linux & AWS we can setup infrastructure in AWS Cloud
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Build & Deployment
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+-> Developers will develop project using one programming language
+
+		Ex : Java, Python, C#, PHP etc....
+
+-> Developers will write code using programming language
+
+-> Developers will keep code in Repository 
+
+		Ex: SVN, GitHub, BitBucket etc...
+
+-> DevOps engineer should take that code from Repository
+
+-> DevOps engineer should perform Project Build and Deployment
+
+-> Project Build means converting the project code into executable format
+
+-> Project Deployment means keeping project exectuable file into server
+
+-> After Deployment then Deliver project to client
+
+		
+  ********* Developers ==> Code ====> Git Hub ====> Build ====> Deploy ===> Deliver **********
+
+-> DevOps engineer will automate project Build and Deployment
+
+-> To automate Build & Deployments we will use Several Tools
+
+++++++++++++++++++++++++++++++++++
+DevOps Tool Chain
+++++++++++++++++++++++++++++++++++
+
+Build Tools	: Maven or Gradle
+Repository	: Git Hub or BitBucket
+Deployment	: Jenkins or Bamboos
+Code Review	: Sonar Qube or Sonarlint
+Configuration	: Chef / Puppet / Ansible
+Containers	: Docker
+Orachestration	: Kubernetes
+App Monitoring	: New Relic
+Log Monitoring	: Graphana or Promethus
+Artifacts 	: Nexus / JFrog
+Infrastructure  : Terraform (Infrastructure as a code)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Software Development Life Cycle ( SDLC )
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+-> The process of implementing software project from beginning to ending is called as Software Development Life Cycle
+
+-> Software Development Life Cycle having several phases
+
+1) Requirements Gathering
+
+2) Analysis
+
+3) Design / Planning
+
+4) Implementation / Development
+
+5) Testing
+
+6) Deployment
+
+7) Deliver
+
+8) Maintenence
+
+
+-> There are several SDLC methodologies are available
+
+1) Waterfall 
+2) Agile
+
+++++++++++++++++++++++++++++++++++
+Waterfall Methodology
++++++++++++++++++++++
+
+-> Waterfall is the first methodology that got introduced in SDLC
+
+-> Waterfall Methodology follows Linear approach
+
+-> In this methodology, after completing one step then only we will go for next step
+
+-> In waterfall methodology we can't go in backward direction (only forward direction)
+
+-> Requirements & Budget is fixed for the project
+
+-> Client involvment is very less in the project
+
+-> Client will see the project at the end
+
+
+Note: Waterfall is recommended only for small scale applications. It is not recommended for Large Scale applications.
+
+-> In today's world every day the requirements are changing to meet customer needs.
+
+++++++++++++++++++++++++++++++++++
+Agile methodology
+++++++++++++++++++++++++++++++++++
+-> Now a days, IT companies are following Agile methodology to develop and deliver the project
+
+-> In Agile methodology Requirments are not fixed and Budget is also not fixed
+
+Note: In Agile methodology, Client can change requirement at any point of time.
+
+-> Agile is an "Iterative" approach to develop and deliver the project to client
+
+-> In Agile methodology Development & Testing will happen paralelly
+
+-> In Agile Methodology, Project requirements will be divided into multiple releases 
+   (these are called as Sprints)
+
+a) Sprint Planning
+b) Sprint
+c) Scrum
+d) Retrospective
+
+-> Sprint Planning is a meeting in which we will identify the priority requirements to deliver
+
+-> Sprint means fixed set of requirements that are finalized for delivery with in timeline
+
+Note: Every sprint will have duration (2 weeks)
+
+-> Scrum means daily status call to update our work status
+
+	(Scrum / Standup / Status)
+
+Note: In scrum call we will discuss what we have done for today
+
+-> Retrospective is a meeting which will be conducted after sprint completion.
+				
+						 - What we have done in this sprint
+						 - Achievements
+						 - Lessons Learnt
+						 - Improve Areas
+						 - New Ideas
+
+-> One Scrum Master will be available to manage our scrum team.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Cloud Computing?
+*************************
+-> Providing on-demanded IT resources over the internet is called as Cloud Computing.
+
+-> There are several cloud providers are available in the market to provide resources over internet 
+	(AWS, Azure, GCP, Salesforce)
+
+-> IT Resource means, computing, network, power, security, storage, servers etc...
+
+
+If you want to deliver one project to client, we need to setup infrastructure
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1) We have to purchase computers
+2) We have to purchase Web servers
+3) We have to purchase Database Servers
+4) We have to purchase Network
+5) We have to purchase Storage
+6) We have to purchase Power & Power Backup
+7) We need to setup Server room
+8) We need to setup Air Conditioner (AC)
+
+9) We need to hire Network Admin to setup network
+10) We need to hire Server admin to setup servers
+11) We need to hiere DB admin to setup Database
+
+12) We need to take a room for rent
+13) We need a security guard to monitor our server room
+14) We need to keep high security for our server room
+
+
+-> Setting up 'application infrastructure' is costly operation and it is time taking process.
+
+-> Instead of we are purchasing and setting up infrastructure we can take the help of Cloud Providers.
+
+-> Cloud Providers are available in the market to provide infrastructure for rent on 'Pay As You Go' Model.
+
+    (Note: Use services and pay the money for use)
+
+      Ex: Credit cards, post paid bills etc...
+
+
+Example : When we have function in our house we are not going to purchase chairs and tables. We will take them for rent and will use for our function.
+	  After the function we will return that material to the owner and will pay rent amount for usage.
+
+-> Similary whatever the infrastructure (machines, servers, network, power, storage) required for our application we can take for rent instead of purchasing.
+
+-> How much we use that much we need to pay for them (Pay As You Go Model)
+
+-> AWS is one of the famous cloud provider available in the market which will provide IT infrastructure for Rent.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Application Architecture
+++++++++++++++++++++
+
+-> In every application/project we can see below tiers
+
+
+1) Presentation  : It contains user interface
+
+2) Application Tier : It contains core business logic
+
+3) Data Tier : Database is used to store our application data permanently
+
+Note: Every application should be deployed into a webserver so that users can access our application through internet
+
+
+
+Load Balancing
++++++++++++++++
+
+-> If we run our application in one server then burden will increase on that server
+
+-> To reduce burden on the server, we will run our application in multiple servers to handle the load
+
+
+Infrastructure Setup
+++++++++++++++++++++
+
+1) We have to purchase computers
+2) We have to purchase Web servers
+3) We have to purchase Database Servers
+4) We have to purchase Network
+5) We have to purchase Storage
+6) We have to purchase Power & Power Backup
+7) We need to setup Server room
+8) We need to setup Air Conditioner (AC)
+
+9) We need to hire Network Admin to setup network
+10) We need to hire Server admin to setup servers
+11) We need to hire DB admin to setup Database
+
+12) We need to take a room for rent
+13) We need a security guard to monitor our server room
+14) We need to keep high security for our server room
+
+
+=> To run our application we need do all the above activities i.e Infrastructure setup
+=> Infrastructure setup is costly & time taking process.
+
+
+=> To ovecome all the above challenges we can go for Cloud Computing
+ 
+
+What is Cloud Computing?
+++++++++++++++++++++++
+
+=> It is the process of delivering IT resources on demand basis
+
+	Ex: Computing, Storage, Network, Database, Security etc...
+
+=> There are several cloud providers available in the market
+
+	Ex: AWS, Azure, GCP, Salesforce, Alibaba, Oracle Cloud, IBM Cloud etc....
+
+=> Cloud Providers will provide Infrastructure based on 'Pay As You Go' model
+
+		Note: Pay As you Go means Pay for use
+
+
+Cloud Advantages
++++++++++++++++
+
+1) Cost Effective
+
+2) Security
+
+3) Scalability
+
+4) Availability
+
+5) Realiability
+
+6) Backup
+
+7) Easy to use
+
+8) Unlimited Storage
+
+
+
+Cloud Services
++++++++++++++
+
+-> Cloud Services are divided into 3 types
+
+1) IaaS : infrastructure as a service
+
+2) PaaS : Platform as a service
+
+3) SaaS : Software as a service
+
+-> In IaaS model cloud provider will give infrastructure then we will setup environment to run our application
+
+-> In PaaS model cloud provider will give platform to run our application
+
+-> In SaaS model cloud provider will give their application to use
+
+
+AWS Introduction
++++++++++++++++
+-> AWS stands for Amazon Webservices
+
+-> AWS cloud managing by Amazon company
+
+-> AWS is one of the leading Cloud Provider in the market
+
+-> AWS started providing IT resources over internet from 2006 onwards
+
+-> 190+ countries using AWS Cloud
+
+-> AWS providing 200+ Services
+
+-> AWS providing Cloud Services based on 'Pay As You Go' model
+
+
+AWS Services Names
++++++++++++++++++
+
+EC2 : Elastic Compute Cloud : To create virtual machines
+
+EBS : Elastic Block Store (External HD)
+
+S3 : Simple Storage Service  : Unlimited Storage
+
+RDS : Relational Database System : To create SQL Databases (Oracle, MySQL, Postgres, MS SQL etc..)
+
+VPC : Virtual Private Cloud : Isolated Network
+
+Route 53 : Domain Name Mapping ( URL Mapping )
+
+BeanStalk : For Paas Model
+
+IAM : Identity & Access Management (who can access which service in AWS)
+
+ECS : Elastic Container service (To run containers)
+
+ELB : Elastic Load Balancer ( Load Balancing )
+
+Lambda : Serverless Computing (run the code without thinking about servers)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+-> To use AWS provided cloud services we need to create one account in AWS 
+
+Note: It will ask debit / credit card for account creation
+
+-> AWS will charge 2 rs for account creation and they will send 2 rs back to our account after account verified
+
+-> In AWS few services are free and few services are paid
+
+-> As part of our training we will use both free and paid services
+
+Note: When we use paid services, after practise completion we need to delete those service to avoid billing
+
+-> If bill got generated we can request AWS Support team to waveoff our bill because we are AWS learners and we are exploring AWS Cloud services.
+
+-> AWS will not deduct bill amount from our card directley. We need to pay that bill manually.
+
+-> If we don't pay AWS bill amount then our AWS account will be terminated.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Putty is used to connect form windows to linux machine
+so to connect linux machine we need ip address
+
+
+========================================================================================================
+
+-> AWS providing global infrastructure
+
+-> 190+ contries are using AWS Cloud through internet
+
+-> To provide Global Infrastructure AWS using Regions & Availability Zones concept
+
+-> Region means one geograhical location
+
+-> Availability Zone means data center
+
+-> Data Center means a big building which contains servers with network
+
+-> One Region can have multiple Availability Zones (AZ)
+
+-> AWS Having 26 Regions and 84 Availability Zones in the world
+
+-> In india AWS having 1 region (Mumbai)  ---- ap-south-1
+
+-> Mumbai region having 3 availability zones
+				
+				- ap-south-1a
+				- ap-south-1b
+				- ap-south-1c
+
+Note: Hyd Region Coming Soon
+
+Note: It is recommended to use Nearest Region in AWS to setup our infrastructure
+
+
+Note: In AWS few services are global ( S3, Route 53 etc...) and few services regional (EC2, VPC etc...)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+++++++++++++++++++++++++++++++
+What is Operating System ?
+++++++++++++++++++++++++++++++
+
+-> Operating System is a software which is used to interact with computer
+
+-> Operating System is acting as mediator between users and computer hardware components
+
+-> Operating System is mandatory to use any computer
+
+-> OS provides environment to run other applications
+
+	(browser, notepad, paint, calc)
+
+-> The OS came into market in 1950
+
+-> Microsoft released it's first OS in 1981 (MS DOS)
+
+
++++++++++++++++
+Windows OS
++++++++++++++++
+
+-> Developed by Microsoft Company
+
+-> It is having GUI (Graphical user interface)
+
+-> It is single user based Operating System (only one person can use this at a time)
+
+-> It is commercial (paid)
+
+-> Less Security
+
+-> It is recommended for personal use
+
+			 - Watch Movies
+			 - Using Internet
+			 - Playing Games
+			 - Attending Online classes
+			 - Store data
+
+
++++++++++++++++
+Linux OS
++++++++++++++++
+
+-> Linux is Community Based OS
+
+-> Linux is Free & Open Source OS
+
+-> Linux is Multi User Based OS
+
+-> High Security
+
+-> Recommended to use for Applications, Servers, Databases etc..
+
+
+Note: In realtime, we will use Linux OS only to setup infrastructure required to run our application
+
+
+-> Linux OS is not only for Administrators, even developers and testers also will use Linux OS in realtime to monitor our application and application servers and application logs.
+
++++++++++++++++
+History Of Linux
++++++++++++++++
+
+-> In 1991, a student 'Linus Torvalds' developed this Linux OS
+
+-> Linux Torvalds identified some challenges in UNIX OS and he suggested some changes 
+  for Unix OS but UNIX OS Team rejected 'Linux Torvalds 'suggestions
+
+-> Linus Torvalds used Minux OS to develop Linux 
+
+		Linus + Minux 
+
+-> First Two letters from his name and last 3 letters from Minux OS 
+
+		LI + NUX => LINUX
+
+-> Linus Torvalds released LINUX OS with source code into market so that anybody can modify LINUX OS thatys why it is called as Open Source Operating System.
+
+-> As Linux OS is open source, so many people and companies taken that Linux OS and modified according to their requirements and released into market with different names those are called as Linux Distributions.
+
+
+RHEL  -- RED HAT
+Ubuntu OS
+Cent OS
+Fedora
+Open SUSE
+Kali Linux
+Debian 
+Amazon Linux
+
+Note : 200+ Linux Distributions are available in the market.
+
+
++++++++++++++++
+Environment Setup
++++++++++++++++
+
+1) Create account in AWS (it will ask debit/credit card) - selected cards are accepted
+
+2) Create Linux VM using AWS EC2 service (download key pair)
+
+3) Download Mobaxterm software to connect with Linux VM
+
+4) Connect with Linux VM using Public IP and pem file
+
+Note: Once work is completed then stop your Linux VM in EC2 to avoid billing
+
+
++++++++++++++++
+Linux Commands
++++++++++++++++
+
+$ whoami : It will display currently logged in username
+
+$ pwd : present working directory
+
+$ date : To display current date
+
+$ cal : To display calendar
+
+
+-> In Linux everything  will be represented as a file
+
+-> We have 3 types of files in linux
+
+1) Ordinary File / Normal File  (it will start with -)
+2) Directory File  (it will start with d)
+3) Link File (it will start with l)
+
+-> The file which contains data is called as ordinary file
+
+-> Directory file is equal to folder (it can contain files and folders)
+
+-> The file which is having linking is called as Link File 
+
+
+=> touch : it is used to create empty file
+
+		$ touch f1.txt
+		$ touch f2.txt
+		$ touch f3.txt f4.txt
+	
+=> To display files we will use 'ls' command
+
+		$ ls
+
+=> To create a file with data we will use 'cat' command
+
+		$ cat > hello.txt
+		//write data
+		press CTRL + d (to save and exit)
+
+		$ cat hello.txt   (To display file data)
+
+		$ cat >> hello.txt (To append data in the file)
+		//write data
+		press CTRL + d (to save and exit)
+
+-> To create directory we will use 'mkdir' command
+
+		$ mkdir dirname
+
+-> To remove the file we will use 'rm' command
+
+		$ rm filename
+
+-> To remove empty directory we will use 'rmdir' command
+
+		$ rmdir dirname
+
+===============================================================================================
+    1  clear
+    2  whoami
+    3  pwd
+    4  date
+    5  cal
+    6  clear
+    7  touch f1.txt
+    8  ls
+    9  touch f2.txt
+   10  ls
+   11  touch f3.txt f4.txt
+   12  ls
+   13  cat > hello.txt
+   14  ls
+   15  cat hello.txt
+   16  cat > hello.txt
+   17  cat hello.txt
+   18  cat >> hello.txt
+   19  cat hello.txt
+   20  clear
+   21  ls
+   22  touch f5.txt
+   23  ls
+   24  cat > f6.txt
+   25  cat f6.txt
+   26  cat >> f6.txt
+   27  cat f6.txt
+   28  clear
+   29  mkdir movies
+   30  ls
+   31  cat f1.txt
+   32  cat > f1.txt
+   33  cat f1.txt
+   34  rm f2.txt
+   35  ls
+   36  rmdir movies
+   37  ls
+   38  history
+
+-----------------------------------------------------------------------------------------------
+
+=> 'ls' is used to list out all files & directories available in the given directory
+
+Note: we can pass several options for 'ls' commands
+
+-> ls : It will display all files in alphabetical order (a to z)
+
+-> ls -r : It will display all files in reverse of alphabetical order (z to a)
+
+-> ls -l : It will display long listing of files
+
+-> ls -t : It will display all files based on last modified date and time. Most recent file will be display at top and old files will display at bottom.
+
+-> ls -rt : It will display all files based on reverse of last modified date and time. Old files will display at top and recent files will display bottom.
+
+
+-> ls -a : It will display all files including hidden files (hidden files will start with .)
+
+-> ls -li : It will display files with inode.
+
+-> ls -lR : It will display all files and directories along with sub directoris content
+
+	Note: -R represents recursive
+
+Note:  We can use several options for ls command at a time. When we are using multiple options order of the options is not important
+
+		$ ls -ltr
+		$ ls -tlr
+		$ ls -l -t -r
+		$ ls -trl
+
+Note: All the above commands will give same output
+
+
+-> To display content of given directory we can execute like below
+
+		$ ls <dirname>
+
+-> To delete a file we will use 'rm' command
+
+		$ rm <filename>
+
+-> To delete empty directory we will use 'rmdir' command
+
+		$ rmdir dirname
+
+-> To delete non-empty directory we will use 'rm' command like below
+
+		$ rm -r dirname
+
+
+-> To display file content we will use 'cat' command
+
+		$ cat filename
+
+-> To display file content with line numbers we will use '-n' option
+
+		$ cat -n filename
+
+
+-> To display multiple files content at a time execute command like below
+
+		$ cat file1 file2 file3
+
+-> Copy one file data into another file using 'cat' command
+
+		$ cat f1.txt > f8.txt
+
+-> Copy more than one file data into another file
+
+		$ cat f1.txt f2.txt > f9.txt
+
+Reversing File Content
+----------------------
+-> 'tac' command is used to reverse file content
+
+	$ tac filename
+
+-> 'rev' command is used to reverse each line content of the file
+
+	$ rev filename
+
+
+head command
+-------------
+-> head command is used to display file data from top (default 10 lines)
+
+		$ head filename
+		$ head -n 5 data.log  (first 5 lines data)
+		~$ head -n 20 data.log (first 20 lines data)
+
+
+tail command
+-------------
+-> tail command is used to display file data from bottom (default 10 lines)
+
+		$ tail filename (last 10 lines data)
+		$ tail -n 100 filename (last 100 lines data)
+	
+		$ tail +25 filename (it will display data from 25th line to bottom)
+		
+
+Note: To see on-growing logs we can use '-f' option
+
+		$ tail -f data.log   (Live log message we can see)
+
+
+wc command
+-----------
+-> It is used to count no.of lines, no.of words and no.of characters in the file
+
+ubuntu@ip-172-31-47-242:~$ wc f1.txt
+ 2  8 45 f1.txt
+ubuntu@ip-172-31-47-242:~$
+
+---------------------------------------------------------------------------------------------
+1  clear
+    2  whoami
+    3  pwd
+    4  date
+    5  cal
+    6  clear
+    7  touch f1.txt
+    8  ls
+    9  touch f2.txt
+   10  ls
+   11  touch f3.txt f4.txt
+   12  ls
+   13  cat > hello.txt
+   14  ls
+   15  cat hello.txt
+   16  cat > hello.txt
+   17  cat hello.txt
+   18  cat >> hello.txt
+   19  cat hello.txt
+   20  clear
+   21  ls
+   22  touch f5.txt
+   23  ls
+   24  cat > f6.txt
+   25  cat f6.txt
+   26  cat >> f6.txt
+   27  cat f6.txt
+   28  clear
+   29  mkdir movies
+   30  ls
+   31  cat f1.txt
+   32  cat > f1.txt
+   33  cat f1.txt
+   34  rm f2.txt
+   35  ls
+   36  rmdir movies
+   37  ls
+   38  history
+   39  cls
+   40  clear
+   41  whoami
+   42  pwd
+   43  date
+   44  cal
+   45  clear
+   46  ls
+   47  touch f7.txt
+   48  cat > f8.txt
+   49  cat f8.txt
+   50  cat >> f8.txt
+   51  cat f8.txt
+   52  mkdir test
+   53  ls
+   54  rm f8.txt
+   55  rmdir test
+   56  clear
+   57  ls
+   58  ls -r
+   59  ls -l
+   60  ls -t
+   61  ls -lt
+   62  cat > one.txt
+   63  clear
+   64  ls -l
+   65  ls -r
+   66  ls -lr
+   67  ls -t
+   68  ls -lt
+   69  clear
+   70  ls -rt
+   71  ls -ltr
+   72  ls -trl
+   73  mkdir aws
+   74  mkdir devops
+   75  mkdir linux
+   76  clear
+   77  ls -lt
+   78  ls -a
+   79  ls -la
+   80  ls -
+   81  ls -l
+   82  ls -la
+   83  ls -F
+   84  ls -lF
+   85  ls -li
+   86  clear
+   87  ls -l
+   88  pwd
+   89  cd aws
+   90  pwd
+   91  touch ec2.txt s3.txt rds.txt
+   92  ls -l
+   93  cd ..
+   94  pwd
+   95  clear
+   96  ls -l
+   97  ls -R
+   98  ls -lR
+   99  clear
+  100  ls -l
+  101  ls -lR
+  102  clear
+  103  ls -l
+  104  ls linux
+  105  ls aws
+  106  ls devops
+  107  ls aws
+  108  ls linux
+  109  rmdir linux
+  110  ls -l
+  111  rmdir devops
+  112  ls aws
+  113  rmdir aws
+  114  clear
+  115  rm -r aws
+  116  ls -l
+  117  clear
+  118  cat f1.txt
+  119  cat >> f1.txt
+  120  cat f1.txt
+  121  cat f2.txt
+  122  cat > f2.txt
+  123  cat f2.txt
+  124  cat -n f1.txt
+  125  cat f1.txt f2.txt
+  126  clear
+  127  ls -l
+  128  cat f1.txt
+  129  cat f1.txt > f8.txt
+  130  ls -l
+  131  cat f8.txt
+  132  cat f1.txt
+  133  cat f2.txt
+  134  clear
+  135  ls -l
+  136  cat f1.txt f2.txt > f9.txt
+  137  cat f9.txt
+  138  clear
+  139  cat f1.txt
+  140  tac f1.txt
+  141  rev f1.txt
+  142  clear
+  143  cat > data.lgo
+  144  clear
+  145  cat data.lgo
+  146  clear
+  147  cat > data.log
+  148  cat data.log
+  149  clear
+  150  head data.log
+  151  head -n 5 data.log
+  152  clear
+  153  head -n 20 data.log
+  154  clear
+  155  head -q data.log
+  156  clear
+  157  tail data.log
+  158  tail -n 100 data.lgog
+  159  tail -n 100 data.log
+  160  tail -n 200 data.log
+  161  clear
+  162  tail +25 data.log
+  163  clear
+  164  tail -f data.log
+  165  clear
+  166  wc f1.txt
+  167  clear
+  168  history
+----------------------------------------------------------------------------------
+
+-> When application running, it will generate log messages and it will store log messages at bottom of the file.
+
+
+-> To see log messages of the application we will use 'tail' command
+
+
+cp command
+---------
+-> To copy the data from one file to another file
+
+	$ cp one.txt two.txt  ( or ) $ cat one.txt > two.txt
+
+	$ cp f1.txt f2.txt f3.txt  (invalid syntax)
+
+-> We can't copy morethan one file data using 'cp' command. To copy multiple files data we should go for 'cat' command
+
+	$ cat f1.txt f2.txt > f3.txt
+
+Rename the files or directories
+--------------------------------
+-> To rename files we will use 'mv' command
+
+	$ mv f1.txt f1111.txt
+
+	$ mv  dirname dirnewname
+
+Note: We can use 'mv' command for renaming and moving files
+
+Comparing files
+---------------
+-> To compare files we can use below commands
+
+$ cmp f1.txt f2.txt
+$ diff f1.txt f2.txt
+
+-> cmp command will display only first difference in given 2 two files
+-> diff command will display all the differences in the content
+
+grep command
+------------
+-> 'grep' stands for global regular expression print.
+
+-> 'grep' command will process the text line by line and prints any lines which matches given pattern.
+
+	Ex: I want to print all lines which contains 'NullPointerException'
+
+	$ grep -i 'NullPointerException' *
+
+Note: We can install grep using below command
+
+	$ sudo yum install grep
+
+//search for the lines which contains given word in the given filename
+$ grep 'word' filename
+
+//search for the lines which are having exception keyword in server.log file
+$ grep -i 'exception' server.log 
+
+//search for the given text in present directory and in sub-directories also
+$ grep -R 'exception'
+
+=> We can pass several options for 'grep' command
+
+-c : This prints only the count of files that matches give pattern
+
+-i : ignore case-sentitivty
+
+-n : Display the matched lines and their line numbers
+
+-l : Displays only file names that matches the pattern
+
+-h : Displays matched lines without file names
+
+-R : Displays matched lines with file names
+
+--------------------------------------------------------------------------------------------
+
+
+++++++++++++++++++++++++++++++
+Working with Text Editors in Linux
+++++++++++++++++++++++++++++++
+
+-> The default editor that comes with the LNIX operating system is called vi (visual editor). 
+
+-> Using vi editor, we can edit an existing file or we create a new file from scratch
+
+-> We can also use this vi editor to just read a text file.
+
+
+Modes of Operation in vi editor 
++++++++++++++++++++++++++++++++++
+There are three modes of operations in vi:
+
+1) command mode
+2) insert mode
+3) escape mode
+
+
+++++++++++++++++
+Command Mode: 
++++++++++++++++
+
+When vi starts up, it is in Command Mode. This mode is where vi interprets any characters we type as commands and thus does not display them in the window
+
+This mode allows us to move through a file, and to delete, copy, or paste a piece of text.
+
+To enter into Command Mode from any other mode, it requires pressing the [Esc] key. If we press [Esc] when we are already in Command Mode, then vi will beep or flash the screen.
+
++++++++++++++++
+Insert mode: 
++++++++++++++++
+
+This mode enables you to insert text into the file. 
+
+Everything thatâ€™s typed in this mode is interpreted as input and finally, it is put in the file. 
+
+The vi always starts in command mode. To enter text, you must be in insert mode.
+
+To come in insert mode you simply type i. 
+ 
+To get out of insert mode, press the Esc key, which will put you back into command mode.
+
+++++++++++++++++++++++++++++++
+Last Line Mode (Escape Mode): 
+++++++++++++++++++++++++++++++
+
+Line Mode is invoked by typing a colon [:], while vi is in Command Mode. 
+
+The cursor will jump to the last line of the screen and vi will wait for a command. 
+
+This mode enables you to perform tasks such as saving files, executing commands.
+
+There are following way you can start using vi editor :
+
+++++++++++++++++++++++++++++++
+Commands and their Description
+++++++++++++++++++++++++++++++
+
+vi filename: Creates a new file if it already not exist, otherwise opens existing file.
+
+vi -R filename : Opens an existing file in read only mode.
+
+view filename : Opens an existing file in read only mode.
+
+
+$ vi f1.txt
+
+=> After making changes if we  want to save those changes then execute :wq
+
+=> After making changes if we don't want to save those changes then execute :q!
+
+++++++++++++++++++++++++++
+Moving within a File(Navigation):
++++++++++++++++++++++++++++++
+
+To move around within a file without affecting text must be in command mode (press Esc twice). Here are some of the commands can be used to move around one character at a time.
+
+++++++++++++++++++++++++++
+Commands and their Description
+++++++++++++++++++++++++++
+
+k : Moves the cursor up one line.
+j : Moves the cursor down one line.
+h : Moves the cursor to the left one character position.
+l : Moves the cursor to the right one character position.
+0 or | : Positions cursor at beginning of line.
+$ : Positions cursor at end of line.
+W : Positions cursor to the next word.
+B : Positions cursor to previous word.
+( : Positions cursor to beginning of current sentence.
+) : Positions cursor to beginning of next sentence.
+H : Move to top of screen.
+nH : Moves to nth line from the top of the screen.
+M : Move to middle of screen.
+L : Move to bottom of screen.
+nL : Moves to nth line from the bottom of the screen.
+colon along with x : Colon followed by a number would position the cursor on line number represented by x.
+
+
+Usecase
+++++++++++
+-> We will use 'vi' editor to perform below activities
+
+a) To edit config files of our application
+b) To edit shell script files
+
+
+++++++++++++++++++++++++
+Working with SED command
+++++++++++++++++++++++++
+
+SED command in LNIX stands for stream editor and it can perform lots of functions on file like searching, find and replace, insertion or deletion.
+
+Though most common use of SED command in LNIX is for substitution or for find and replace. 
+
+By using SED you can edit files even without opening them, which is much quicker way to find and replace something in file, than first opening that file in VI Editor and then changing it.
+
+SED is a powerful text stream editor. Can do insertion, deletion, search and replace (substitution).
+
+SED command in lnix supports regular expression which allows it perform complex pattern matching.
+
+Example:
+---------------
+$ cat > myfile.txt
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os. Learn unix. unix is a powerful.
+
+++++++++++++++++++++++++++++++
+Replacing or substituting string : 
+++++++++++++++++++++++++++++++
+
+Sed command is mostly used to replace the text in a file. The below simple sed command replaces the word â€œunixâ€ with â€œlinuxâ€ in the file
+
+$ sed 's/unix/linux/' myfile.txt
+
+By default, the sed command replaces the first occurrence of the pattern in each line and it wonâ€™t replace the second, thirdâ€¦occurrence in the line.
+
++++++++++++++++++++++++++++++++++++++++++++
+Replacing the nth occurrence of a pattern in a line : 
+++++++++++++++++++++++++++++++++++++++++++
+
+Use the /1, /2 etc flags to replace the first, second occurrence of a pattern in a line. The below command replaces the second occurrence of the word â€œunixâ€ with â€œlinuxâ€ in a line.
+
+		$sed 's/unix/linux/2' geekfile.txt
+
+++++++++++++++++++++++++++++++++++++++++++
+Replacing all the occurrence of the pattern in a line : 
+++++++++++++++++++++++++++++++++++++++++++
+The substitute flag /g (global replacement) specifies the sed command to replace all the occurrences of the string in the line.
+
+		$ sed 's/unix/linux/g' myfile.txt
+
+Deleting lines from a particular file 
+-------------------------------------------------
+SED command can also be used for deleting lines from a particular file. SED command is used for performing deletion operation without even opening the file
+
+To Delete a particular line say n in this example
+-----------------------------------------------------------------
+$ sed '5d' myfile.txt
+
+-> To Delete a last line : $ sed '$d' myfile.txt
+
+-> To Delete from nth to last line : $ sed '12,$d' myfile.txt
+
+
+Note: By default SED command changes will not store in file.
+
+=> To make SED command changes to file permanently we will use '-i' option.
+
+	$ sed -i 's/unix/linux/g' myfile.txt  
+
+Note: With above command 'unix' keyword will be replaced with 'linux' keyword in the file permanently.
+
++++++++++++++++
+File permissions
++++++++++++++++
+
+To create a secure environment in Linux, you need to learn about user groups and permissions. For example, if you work in a company and you want the finance department to read a file but not make any modification to it, then you need to use permissions in Linux. It is a must for every programmer working with Linux nowadays.
+
+Letâ€™s start by talking about the ownership of Linux files.
+
+User: the owner of the file (person who created the file).
+
+Group: the group can contain multiple users. 
+
+Therefore, all users in that group will have the same permissions. It makes things easier than assign permission for every user you want.
+
+Other: any person has access to that file, that person has neither created the file, nor are they in any group which has access to that file.
+
+=> Execute 'ls -l' command to file's permissions
+
+
+We will work with this part â€œ-rw-râ€“râ€“".
+
+The characters mean:
+
+â€˜râ€™ = read.
+â€˜wâ€™ = write.
+â€˜xâ€™ = execute.
+â€˜-â€™ = no permission.
+
+-rw-r--r--
+
+-: It represents file
+rw: User
+r: Group
+r: Other
+
+As we see above, the empty first part means that it is a file. If it were a directory then it will be the letter â€œdâ€ instead. 
+
+The second part means that the user â€œHomeâ€ has read and write permissions but he does not have the execute one.
+
+The group and others have only the read permission.
+
+Letâ€™s change the permissions using the chmod command.
+
+	$ chmod o+w section.txt
+
+This command will add the write permission for other users to my text file â€œsection.txtâ€.
+
+Now if you try to execute ls -l then you will see -rw-r--rw-
+
+â€œoâ€ refers to others, â€œgâ€ for the group, â€œuâ€ for the user, and â€œaâ€ for all.
+
+Now letâ€™s add the execute permission to the user with:
+
+	$ chmod u+x section.txt
+
+The permissions will be -rwxr--rw-
+
+If you want to remove the permission, you can use the same method but with â€œ-â€ instead of â€œ+â€. 
+
+For example, letâ€™s remove the execute permission from the user by:
+
+	$ chmod u-x section.txt
+
+And the permissions now are: -rw-r--rw-
+
+Also, you can use Symbolic Mode to modify permissions like the following:
+
+Number	Permission
+0	No permission
+1	Execute
+2	Write
+3	Execute and Write
+4	Read
+5	Read and Execute
+6	Read and Write
+7	Read, Write and Execute
+
+For example, letâ€™s give every permission for all with:
+
+	$ chmod 777 section.txt
+
+Then the permissions will be: -rwxrwxrwx.
+
+Letâ€™s remove the execute from the group and the write from other by:
+
+	$ chmod 765 section.txt
+		
+Then the permission will be : -rwxrw-r-x
+
+++++++++++++++++++++++++++
+Working with User Accounts
+++++++++++++++++++++++++++
+
+=> Linux is multi user based operating systems
+
+=> Within one Linux machine we can create multiple user accounts
+
+=> Multiple users can access single linux machine and can perform multi-tasking
+
+-> When we launch EC2 instance with Ubuntu OS, we got by default 'ubuntu' user account
+
+Create a user
++++++++++++++
+$ sudo adduser <uname>
+
+=> After creating user account we can verify useraccount details using 'id' command
+
+$ id <uname>
+
+=> 'id' command will display user account information
+
+=> Check the files available in home directory 
+
+$ ls -l
+
+	(We can see ubuntu folder and newly created user folder)
+	(That means we have 2 user accounts in our machine)
+
+After creating a new user and setting a password to it, you can log in from the terminal
+
+	$ su - <uname>
+
+
+Delete a user
++++++++++++++
+
+$ sudo userdel <uname>
+
+If you try that command, you will notice that the user directory has not been deleted and you need to delete it by yourself.
+
+You can use this automated command to do everything for you:
+
+$ sudo deluser --remove-home <uname>
+
+
+User groups
+++++++++++++
+
+-> A group is a collection of users. 
+
+-> The primary purpose of the groups is to define a set of privileges like read, write, or execute permission for a given resource that can be shared among the users within the group.
+
+Create a group
+++++++++++++++
+You can see all of the groups you have by opening the following file:
+
+$ cat /etc/group
+$ sudo groupadd <groupname>
+
+Add user to a group
+++++++++++++++++++++++++++
+$ sudo usermod -aG <group-name> <username>
+
+-> verify user groups using command -> $ id username
+
+Delete user from a group
++++++++++++++++++++++
+$ sudo gpasswd -d <username> <groupname>
+
+Delete a group
++++++++++++++
+$ sudo groupdel <groupname>
+
+++++++++++++++++++++++++++++++++++++
+Working with 'find' and 'locate' commands
+++++++++++++++++++++++++++++++++++++
+
+locate command
+++++++++++++++++
+The locate Command find will search for data in local db
+
+$ sudo apt install mlocate
+
+$ locate apache
+
+$ locate -c apache
+
+$ locate -c *.txt
+
+$ locate -S (to see locate database)
+
+Note: when we create new files it will take some time to update those files in mlocate db
+
+find command
++++++++++++++
+
+=> find command will search for the files in entire linux file system.
+=> find command providing advanced searching technique
+=> Using find command, we can search for the files based on name and type also.
+
+2. Find Files Under Home Directory
+# find /home -name f1.txt
+
+7. Find Files With 777 Permissions
+# find . -type f -perm 0777 -print
+
+19. Find all Empty Files
+# find /home -type f -empty
+
+20. Find all Empty Directories
+# find /home -type d -empty
+
+Note: As find command is scanning entire file system, it will take more time to give search results.
+
+
+Chown command
+++++++++++++++++
+
+-> The chown command changes user ownership of a file & directory in Linux
+
+-> Every file is associated with an owning user or group
+
+-> We can check the ownership of a file using 'ls -l'
+
+# changing owner of a file
+$ chown NewUser FILE
+
+Note: we can change owner using userid also
+
+$ chown 1001 filename
+
+# changing group of a file
+$ chown :NewGroup FILE
+
+# We can change group using group id also
+$ chown :1003 sample
+
+# Change Owner and the Group
+$ chown NewUser:NewGroup FILE
+
+
+
+-> 'man' command is like a help command. It is used to understand command syntax and options.
+
+		$ man cat
+
+
+-> To see ip address we will use 'ifconfig' command
+
+	$ ifconfig
+
+Note : ifconfig is not installed then execute below command
+
+	$ sudo apt install net-tools
+
+-> 'ping' command is used to check connectivity
+
+	$ ping <ip>
+
+->  'curl' command is used to get response from the server
+
+	$ curl <url>
+
+-> 'wget' command is used to download resources from internet
+
+	$ wget <url>
+
+
++++++++++++++++++++++++++++++++++
+How to intall Softwares in Linux Machine
++++++++++++++++++++++++++++++++++
+
+-> In linux we have package manager to install a software
+
+
+Note: Amazon Linux / CentOS / Red Hat : yum is the package manager
+
+Note : Ubuntu : apt-get is the package manager
+
+
+# update existing packages in linux
+$ sudo yum update -y
+
+# install git client
+$ sudo yum install git
+
+# check git version
+$ git --version
+
+# install maven
+$ sudo yum install maven
+
+# check maven version
+$ mvn --version
+
+# install java software
+$ sudo yum install java
+
+# install Java 1.8 version
+$ sudo yum install java-1.8.0-openjdk
+
+
+
+
+
+Installing Apache Server In Linux VM
+==================================
+
+1) Connect to EC2 instance (UBUNTU OS)
+
+2) Execute below commands to install apache server
+
+$ sudo su
+
+$ sudo apt update
+
+$ sudo apt install apache2
+
+$ apache2 -version
+
+$ sudo systemctl start apache2
+
+$ sudo systemctl status apache2 
+
+Note: Check accessing apache server from outside using system IP 
+
+-> If server is not accessible then create security group with http port open
+
+-> Add security group for EC2 instance
+
+-> After adding security group try accessing EC2 instance using IP
+	
+	Ex: http://52.66.101.3/
+	
+-> You can modify html page content
+
+	$ cd /var/www/html
+	$ cat > index.html
+
+	<h1> Welcome to Ashok IT - Website</h1>
+		
++++++++++++++++++++++++++++++++++++++++++
+Deploying Static Website In EC2 Instance
+++++++++++++++++++++++++++++++++++++++++
+
+-> Keep index.html and assets in EC2  VM - > Location : var/www/html
+
+Note: If permission not available to store the data then execute below command
+
+$ sudo chmod 777 /var/www/html -R
+
++++++++++++++++++++
+Install Java in Ubuntu
++++++++++++++++++++
+-> java -version (Check java version)
+
+$ sudo su
+
+$ sudo yum install default-jdk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

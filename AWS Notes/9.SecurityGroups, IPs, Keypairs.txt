@@ -1,0 +1,135 @@
+Security Groups
++++++++++++++++
+
+-> AWS providing security for our virtual machines using Security Groups
+
+-> Security Groups will decide who can access our instance/ server / VM & what our Instance can access
+
+-> In Every Security Group we will have 2 types of rules
+
+			1) Inbound Rules
+
+			2) Outbound Rules
+
+-> Inbound rules will decide who can access our instance
+
+-> Outbound rules will decide what our machine can access
+
+
+Note: To create EC2 instance Security Group is Mandatory.
+
+In General, we will add below Inbound Rules in Security Grous
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+For Windows Machines we will use ==> RDP - 3389
+
+For Linux Machines we will use  ==> SSH - 22
+
+For WebServers ==> HTTP - 80
+
+For WebServer + SSL  ==> HTTPS - 443
+
+
+Note: We can configure particular IP also in security group.
+
+-> If we want to allow all traffic then we will configure "0.0.0.0/0"
+
+Note: AWS Security Groups will help you to configure which traffic we can allow. We can't configure Traffic Deny rules in Security Groups.
+
+      ( Security Groups support for only ALLOW, it doesn't support for DENY )
+
+	Q: Could u pls tell me how to allow http request for my EC2 
+	A: To allow the http request we can configure http port 80
+	
+	Q: CAn u tell me how to allow RDP request for my EC2?
+	A: To allow the RDP request we can configure EDP port 3389
+
+	Q: Can u tell me how to allow SSH request for my EC2?
+	A: To allow the SSH request we can configure SSH port 22
+
+	Q: Can u tell me how to allow HTTPS request for my EC2?
+	A: To allow the HTTPS request we can configure HTTPS port 443
+
+	Q: Do i need to configure all the ports(22 , 80 , 3389 , 443) in security group
+	A: Not required Based on the requirement only we can configure,  It depends upon what are u doing in the machine, in the EC2 which OS is available do u have windows/linux/webserver/ webserver ssl
+	   - To connect with windows we need RDP
+	   - For Linux we need SSH
+	   - For webserver we need HTTP
+	   - For webserver+ssl we need HTTPS
+	
+	Q: Can i block particular IP Address by using Security group
+	A: No
+		EX: One of my friend is available he is having computer, i dont want to allow my friend to access my machine, can i block only my friend to access my machine
+		Ans : no
+	Q: what we can do with the security groups
+	A: With the Security group u can configure only who can access it has only ALLOW option, it doesnt have the DENY option
+
+
+Note: If we want to configure DENY rules functionality then we should go for NACL concept.
+
+		NACL -> Network Access Control List
+
+Note : SecurityGroups are Not Chargable in AWS(AWS will not charge for the security group creation
+
+-----------------------------------------------------------------------------------------------------
+Types of IPs
+--------------------------------------------------------------------------------------------------------
+
+-> IP stands for Internet Protocol
+
+-> IP is called as Address of the computer
+
+-> For every computer IP is mandatory to connect with Internet
+
+-> In AWS, we can see 3 types of IPS
+
+		1) Private IP
+
+		2) Public IP
+
+		3) Elastic IP (Static IP)
+
+
+-> When we launch EC2 instance, AWS will assign one Private IP for our instance (For Internal Purpose)
+
+		Note: We can't connect to EC2 using private ip from outside
+
+-> To connect with EC2 instance from outside we need Public IP. 
+
+-> When we launch EC2 instance, AWS will assign one public IP i.e temporary ip. When we re-start our EC2 instance public ip getting changed.
+
+-> If you want a static ip for your instance then you should go for Elastic IPs.
+	( If i dont want to change my IP even if i start or stop my EC2 then we can go for Elastic IP)
+
+
+Note: When we create Elastic IP, we have to associate(use) that Elastic IP with EC2 instance
+
+-> when you are not using the Elastic IP  you have to Release the Elastic Ip , If you keep Elastic IP idle then bill will be generated.
+-> If u create Elastic IP and dont use then also the bill will be generated so u should not keep the Elastic IP idle 
+
+Note: In Free tier, 5 Elastic IPs are free.
+
+Note : Elastic IPs are Chargable
+
+-------------------------------------------------------------------------------------------------------
+Key Pair
++++++++++++
+
+-> If u want to connect EC2 instanc securely then u need a keypair, u can associate a keypair to EC2 instance
+
+-> Their are 2 types of keypairs are available
+	1.RSA
+	2.EDS
+	(Note: RSA keypair will support for all instances but EDS support only for Mac & linux)
+-> keypair formats in 2 types 
+	1.pem format
+	2.ppk format
+
+Note : Keypairs are Not chargable
+
+
+
+
+
+
+

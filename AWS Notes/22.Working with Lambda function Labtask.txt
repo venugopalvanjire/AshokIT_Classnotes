@@ -1,0 +1,35 @@
+
+Working with AWS Lambda Function	
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1) upload given java project jar file into  s3 bucket 
+
+2) Go to AWS Lambda service
+
+3) Create Lambda Function
+		
+		-choose Author from scratch 
+
+		-Enter function name
+
+		-choose Runtime as java 8 on amazon linux 1
+
+		-In Advanced Settings, enable function URL
+
+		-Choose Auth Type as 'NONE'
+
+Note: With above steps AWS Lambda function will be created and function Endpoint also will be generated.
+
+4) Click on function endpoint URL (it will display default response as - Hello from lambda ! )
+
+5) Goto code source and click on  upload from -> Choose Amazon S3 Location and provide java project jar file location which is available in s3 bucket ( in  first step we have uploaded jar file into s3 bucket)
+
+6) Goto Runtime settings and configure Handler like below
+
+	pkgName.classname::methodName
+	
+	Ex : in.ashokit.LambdaHandler::handleRequest
+
+Note: Handle means the java class method that should be executed for this aws lambda.
+
+7) Access Function Endpoint URL ( it will give the response, that responsee comming from the java project)

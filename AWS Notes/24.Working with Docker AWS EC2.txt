@@ -1,0 +1,124 @@
+
+Docker
++++++++
+
+-> Docker is a containerization tool
+
+-> It is used to package our application & application dependencies 
+
+-> Using Docker, we can easily run our application in multiple environments
+
+
+++++++++Install Docker in Amazon Linux++++++++++++
+
+$ sudo yum update -y
+$ sudo yum install docker -y
+$ sudo service docker start
+
+# add user to docker group by executing below command
+$ sudo usermod -aG docker ec2-user
+
+$ docker info
+
+#Restart the session
+$ exit
+
+Then press 'R' to restart the session (This is in MobaXterm)
+
+++++++++++++++++++++Docker Commands+++++++++++++++++++
+
+#see docker info 
+$ docker info
+
+# To see docker images execute below command
+$ docker images
+
+# Pulling hello-world docker image 
+$ docker pull hello-world
+
+# see docker image 
+$ docker images
+
+# Running hello-world docker image 
+$ docker run hello-world
+
++++++++++++++++++++++++Working with Spring Boot Application Using Docker++++++++++++++++++++++++
+
+# pulling docker image from docker hub
+$ docker pull ashokit/spring-boot-rest-api
+
+# Seee docker images after pulling
+$ docker images
+
+# Run docker image in detached mode
+$ docker run -d -p 9090:9090 ashokit/spring-boot-rest-api
+
+			Note: host-port:guest-port
+
+Note: Allow Custom TCP Port with Range as 9090 for all traffic in EC2 Security Group
+
+# To See runing docker containers
+$ docker ps
+
+
+Access Application in browser
++++++++++++++++++++++++++++++++
+URL : http://13.232.179.189:9090/welcome/Mahesh
+
+
+Working with AWS ECS Service
++++++++++++++++++++++++++++++
+
+-> ECS stands for Elastic Container Service
+
+-> Using ECS service we can run conatiners (Ex: Docker Container)
+
+
+Steps to setup application using ECS service
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1) Take docker image name from docker hub
+
+Image Name : ashokit/spring-boot-rest-api
+
+2) Go to AWS ECS Service and click on 'Get Started' button
+
+3) Click on 'Configure' button in 'Custom Card'
+
+	Enter Container Name : ashokitcontainer
+	Configure Docker Image Name : docker.io/ashokit/spring-boot-rest-api
+	Configure Port Mapping as : 80
+
+4) Go to Next Screen (Keep LBR as NONE)
+
+5) Configure Your Cluster (Give some name for that)
+
+6) Then Click on Create Cluster (it will complete 9 steps, we have to wait until 9 steps completed)
+
+7) Go to security group of our ECS Cluster and configure application port number 9090 in Inbound Rules
+	
+Note: Our Docker image app having port as 9090
+
+8) Click on View Service
+
+9) Go to task tab (You can see task running)
+
+10) Click on Task id , you can see public ip to access our application running in AWS ECS
+
+URL To access : http://public-ip:9090/welcome/Raju
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

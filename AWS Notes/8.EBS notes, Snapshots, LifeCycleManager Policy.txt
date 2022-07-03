@@ -1,0 +1,278 @@
+Amazon EBS Volume
+---------------------
+Elastic Block Store volume is a block level storage device that can be associated with an EC2 instance
+
+EBS Volumes can be used as both primary storage and secondary storage
+
+The primary EBS volume acts as root volume and should be created and attached to the instance at the time of instance launch. Storage  can be increased in the future if needed. This primary EBS volume cannot be detached from the instance.
+
+The secondary volume can be attached, detached and modified at any time.
+
+An instance can have one primary EBS volume and n number of secondary volumes
+
+One Primary EBS Volume can be only associated with one instance and we can attach a single secondary EBS Volume to multiple Instances, provied they are in same Availability Zone.
+
+(	->EBS is used to store the data permanently
+	->Whenever you are creating VMs they are providing you some default storage i.e EBS volume, if you are going to launch a machine with linux OS they are providing you 8GB storage by default 
+	   and for free tier eligible customers can get upto 30GB storage under GeneralPurposeSSD for evrey instance
+	->when u r creating VM we will store the data into that VM, in order to store the data we need some storage so that is the reason AWS is providing some default storage i.e called EBS RootVolume 
+	so whenever u create EC2 instance by default EBS RootVolume will be created. 
+	->EBS RootVolume  will be created by default for Every EC2 Instance, we cannot detach/delete the  EBS RootVolume from EC2 instance incase if i delete rootvolumes my instances will not work so we cannot detach rootvolumes.
+	->In EBS RootVolume OS will be stored.
+		-> For Linux, EBS RootVolume Default Size : 8GB
+		-> For Windows, EBS RootVolume Default Size : 30GB
+	-> if required, we can increase the EBS RootVolume size
+	-> if we terminate the EC2 instance then we will loose EBS RootVolume
+
+	=> In order to store the data permanently we can create Additional EBS volume  and we can attach to EC2 instance.. The maximum capacity in EBS Additional Volumes is 16TB
+	=> we can attach & dettach EBS additional volumes from EC2 instances  so even if u delete the EC2 the data will be permanently available in Additional vOlume   )
+Q : How many types of Volumes can use from EBS
+A : 2 types they are 1) RootVolume  2) Additional volume
+
+Q : when i create the EC2 instance which volume will be created by default?
+A : RootVolume Will be created
+
+Q : What Data will be stored in the RootVolume ?
+A : OS will be stored
+
+Q : CAn i remove the RootVolume from the EC2?
+A : No we cannot remove
+
+Q : How many RootVolumes will be available to EC2?
+A : 1
+
+Q : What is the default capacity of the EBS rootVolume ?
+A : For Linux it is 8GB & For Windows it is 30GB
+
+Q : Can we increase the capacity of the Root Volume?
+A : Yes under free tier i can increase upto 30GB
+
+Q : If i terminate the EC2 instance does EBS rootVolume will be deleted?
+A : Yes
+
+Q : Is it recommended the data to store in the RootVolume?
+A : No
+
+Q : Where the data is recommended to Store in VM even if i delete the VM machine my data should not be deleted?
+A : Additional Voume
+
+Q : MAx capacity of Additonal Volume?
+A : 16TB
+
+Q : CAn we attach the Additional volume to EC2 instance & is it mandatory to Attach?
+A : Yes we can attach additional volume to EC2 and It is not mandatory to attach it is optional
+
+Q : Can we attach & detach EBS additoinal Volume from EC2?
+A : Yes we can attach & detach
+
+Q : Which type of EBS volume is supporting multi attach facilty?
+A : Provisioned IOPS
+
+Q : which volume will give the best performance?
+A : Provisioned IOPS  
+
+Q : Can i create multiple Additional volumes and attach to single ec2 instance?
+A : Yes 
+
+Note : Volumes are AvailabiltyZone Specific.
+	Ex: if my EC2 instance is available in south-1b availabiltyZone & my addition volume is available in south-1a availabiltyZone then it is not possible.
+	    if ur instance is in south-1a  & if ur volume is also available in south-1a then only u can attach that additional volume to the EC2 instance.
+
+
+There are 5 types of EBS volumes:
+---------------------------------
+General Purpose SSD (gp2)- Provides balance of both price and performance and is generally chosen by default
+
+Provisioned IOPS SSD (io1)-- Most expensive of the volume types with highest performance and well-suited for tasks with heavy workloads
+
+Throughput Optimized HDD (st1)- A low-cost volume that focuses on optimizing throughput and is generally used for large sequential workloads dealing with big data warehouses. These volumes cannot be used as root volumes for EC2 instances.
+
+Cold HDD (sc1)- least expensive of the volume types and specifically designed for workloads which are accessed less frequently. These volumes also cannot be used as root volumes for EC2 instances.
+
+Magnetic (Standard) - Previous generation magnetic volumes which cannot be used as root volumes for EC2 instances
+
+Note: You can attach the volume to multiple EC2 instances if it is Provisioned IOPS instance.	
+	Only provisioned IOPS instance having multi attach facilty 
+
+Resizing EBS Volumes
+------------------------
+In this digital world of ever enlarging data it’s not enough to build solutions with hard-coded amount of storage that cannot scale.
+
+If the volume associated with the EC2 instance fills up, we have to increase the side of the volume.
+
+Advantages of using EBS Volumes
+High availability and flexibility
+
+Data can be kept persistently on a file system even after shut downing the instance
+
+Enables snapshots, which capture the data stored at a point in time and can be restored at any time.
+
+The snapshots enables us to create a volume and attach it to another instance if needed.
+
+Can be resized at any time as and when required
+
+Comes equipped with encryption (and encryption-at-rest).
+
+EBS Volumes can be attached, detached and associated with other instances at any point in time (exception the primary volume)
+
+
++++++++++++++++++++++++++++++++++++
+**Today's Lab Task**
++++++++++++++++++++++++++++++++++++
+1) Create an EC2 Linux instance with Amazon GBLinux 2 AMI
+2) Create Additional EBS volume with 10 GB
+3) Attach EBS volume of 10 GB to EC2 for storing data
+4) Connect to EC2 instance and verify volumes (EBS volume shud display)
+5) Create a directory and mount EBS volume to created directory
+6) Store the data in EBS volume mounted directory (create few files)
+7) Detach EBS volume from EC2 and stop/terminate EC2 instance
+8) Create new EC2 instance and attach previously created EBS volume
+9) Connect to new EC2 instance using putty and verify volumes (EBS volume shud display)
+10) Create a directory and mount EBS volume to created directory
+11) Verify data which stored previously in EBS available or not (it should present)
+12) Stop Instances and delete volumes
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+List the attached EBS volumes: –
+$ lsblk
+
+Check if the volume has any data using the “sudo file -s /dev/xvdf” command.
+$ sudo file -s /dev/xvdf
+
+Format partition using the command “sudo mke2fs -j /dev/xvdf”.
+$ sudo mke2fs -j /dev/xvdf
+		Note: if thier is data available u can format by using above command.
+
+Mounting this disk partition as “/newdisk”
+
+		Note: Mounting is nothing but pointing, where root volume & addtionalvolume availble means inside linux thier is a folder called dev folder is available inside dev we are having xvda rootvolume & xvdf addtionalvolume
+			iam not directly poinig my data to this, here iam creating one folder(ex : newdisc) and simply iam pointing dev xvdf additonalvol to this newdisc folder path so now i can store the data in to this newdisc folder and delete 
+			
+so am i directly touching the additional volume or am i performing operations on the mounting folder ..so iam performing on mounting folder 
+
+a. Switch to root by using 
+$ sudo su
+
+b. create directory with a name /newdisk
+$ sudo mkdir /newdisk
+
+c. Mount EBS volume to newdisk using the command 
+$ sudo mount /dev/xvdf /newdisk/
+
+d. Check mounts using df -h
+$ df -h
+
+Navigate to newdisk directory (it is available under root (/)
+$ cd ../../newdisk
+
+Creat new file in newdisk directory and store the data
+$ touch f1.txt
+
+--------------------------------------------------------------------------------
+1) Detach Volume from EC2-1 and Stop EC2 instance
+
+2) Create New EC2 instance
+
+3) Attach EBS Additional Volume
+
+4) Connect to newly created EC2 instance using putty
+
+5) Check volumes available in EC2 using (lslbk command)
+
+6) Create directory 
+
+	$ mkdir newdrive
+
+6) Mount EBS volume to directory
+	
+	$ sudo su
+	$ sudo mount /dev/xvdf newdrive 
+
+5) Verify data available in EBS volume came to our directory or not
+
+	$ ls -l newdrive
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+=> Root volumes contains operating system
+
+=> We will use EBS Additional volumes to store our application & application configuration files
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Snapshots
+==============
+-> Snapshot is a point-in-time copy of a volume(i.e frequently for every hour,for every minute, for every sec also you can take ur data backup from the volume by using snapshot
+-> Volume backup is called as snapshot
+-> EBS SnapShots will be created from EBS volume
+-> We can create Snapshot from volume and volume from Snapshot
+
+		Volume--------->Snapshot----------->Volume
+
+-> Snapshots will be stored in AWS S3
+-> Snapshots are Regional specific(No AvailabiltyZone)  & Volumes are Availabilty Zone Specific
+-> By default Snapshot is private( we can make public also
+-> We can copy the Snapshots from one Region to another Region(With Same AWS Account)  
+		For Ex: i have created snapshot in the mumbai region now i want to copy the snapshot to tokyo region or singapore region within one region u can copy snapshot
+
+-> Snapshot size is 50GB
+	Q : Volume can have 16TB data then 'snapshot is 50GB then how it is possible ?
+	A : we are going to take incremental backup( whatever the modified data is their that will be backuped not entire data)
+
+	Q : can i attach snapshot to EC2 instance directly?
+	A : No its not possible    Note: only volume can be attached to EC2.
+
+	Note: If u have a snapshot if u want to attach that snapshot to EC2 from the Snapshot u need to create the volume, that volume can be attached to EC2 instance 
+
+Interview Question
+-------------------
+	Q: Iam HAving one EC2 instance it is available in 1a Zone na d my EC2 insatnce having a root volume & for this EC2 instance i have created Additional volume also in same 1a Zone in this additional volume i have stored some data(ex KGFmovie)
+	   now my reqiurement is i have another EC2 instance in 1b availabiltyZone this EC2 instance also having root volume . now i want to copy KGFmovie in my 1bzone EC2 instance also what i need to do?
+
+	A: From the 1azone additional volume i am going to created a snapshot from that snapshot i can created volume when iam created volume from the snapshot	this volume iam going to create in 1b Zone (if create volume in 1azone i cannot attach to ec2) 
+	   now this 1b volume can be attached to 1bzone EC2 instance when i attach this volume which is created from the snapshot to 1b ec2 instance my data KGF movie come to here also 
+	   Like tis u can share the data.
+
+
+
+Snapshots Lab Task
++++++++++++++++++++
+1) Create EC2 instance in 1a zone
+2) Create EBS Additional Volume(v1) in 1a zone
+3) Creat Snapshot(s1) from 1a zone volume (v1)
+4) Create Volume(v2) in 1b zone from Snapshot(s1)
+5) Create EC2 instance in 1b zone
+6) Attach 1b zone volume(v2) to 1b zone EC2 instance
+7) Delete snapshot, volume and instances
+
+
+LifeCycle policy  :   In the EBS Snapshots  to take the  Incremental Backups we are going to use the concept called LifeCycleManager Policy
+------------------
+			LifeCycleManager ( To create snapshots based on given Time Interval)
+
+-> Data LifeCycle manager enables u to automate the creation,retention,copy,deletion of EBS snapshots and EBS-backed AMIs
+-> how frequently u want to schedule the backup u can mention thier like daily/weekly/monthly/yearly & for every 1hr//2hr/3hr/... 
+   like this u can specify how u want to take the backup u have a option to schedule the backup policy also by using lifecycle manager
+
+ Note: So in the company when ur working on the AWS they will give the requirement how frequently they want the backup based on that requirement u can configure lifeCycleManager policy
+       Like do u want to takeup daily/weekly/monthly/yearly.. if u want to take backup daily how frequently for every 1hr/2hr/5hr/.. how u want to take backup that u can configure as part of policy schedule
+
+	Retention count means how many snapshot u want to keep backup if i keep the count as 10 when the 11th one snapshot is created then 1st snapshot will be deleted and when the 12th one snapshot is created then 2nd snapshot will be deleted
+	so old snapshots will be deleted we can configure the retention policy also
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

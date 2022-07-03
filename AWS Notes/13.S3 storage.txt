@@ -1,0 +1,387 @@
+Simple Storage Service
++++++++++++++++++++++++
+-> S3 is object based storage but by using S3 we can store Unlimited Data
+	 under free tier u can store 5GB of data.
+
+-> EBS is used to store data permanently but by using EBS we cannot store Unlimited data, EBS Additional Volume having capacity upto 16TB only
+   To Store The Data In AWS we have S3
+
+-> You can store any type of File in S3, Every File in the S3 is considered as on Object
+
+-> In s3 we can store all flat files 
+
+-> By using this S3 We can upload, download and access files from S3
+
+-> Whatever The files you store in s3 those files can't be executed
+
+-> We can't install OS, DB etc in S3
+
+-> We can't attach S3 to ec2 instance but we can access s3 data from EC2 instance
+
+-> S3 is unlimited storage, using Amazon S3 we can store any amount of data from anywhere (No Limitations)
+
+-> S3 supports static website hosting 
+
+-> S3 is cheaper than EC2 
+
+-> S3 is serverless
+
+-> In S3 we will store data in buckets. Bucket is a container. bucket contains object 
+
+	Object = file
+	key is name of the object
+	
+-> S3 is global but buckets are regional
+
+-> In S3 we are going to create Bucket those Bucket names are universal and bucket name should be unique
+
+Note: always create a bucket with your company name or project name.
+
+-> We can't create one bucket inside another bucket
+
+-> We can create multiple buckets in multiple regions
+
+-> Max no.of buckets you can create in S3 is 100 (soft limit)
+
+-> By default buckets are private, if required we can make it public.
+
+-> Amazon S3 is an object storage service that offers Scalabilty,Availabilty,Security, high performance. 
+
+-> Whenever upload a any object into S3 bucket one URL will be generated i.e Global URL(Bucket endPoint) by using this object endpoint u can access the object if it is having the public access.
+	
+Their is a concept called share with a presigned URL means i want to provide the access for my object/file for limited period of time
+	for Ex: i want to give only 1hour access for that URL within 1hour u need to access, after 1hour URL will Expire u cannot access.
+
+
+Steps to create S3 Bucket
++++++++++++++++++++++++++++
+
+-> Login into AWS Management Console
+
+-> Go to S3 service
+
+-> Click on Create Bucket
+		
+		- Choose Unique Name for Bucket
+
+		- Select Nearest Region
+
+		- Object Ownership : ACLs Enabled
+
+		- Uncheck the checkbox of 'Block all public access'
+
+		- Accept license agreement
+
+		- Click on Create Bucket
+
+-> Once bucket is created we can see that bucket in S3 buckets section
+
+
+-> Click on the bucket name and upload file (by default objects will be private, we can them as public)
+
+
+Note: Every object will have its own url/endpoint
+
+Ex: https://awsdevops7pmbucket.s3.ap-south-1.amazonaws.com/EC2-Interview-Questions.txt
+
+******************** bucketname+ domain + object name*************************
+
+-> S3 uses WORM model (Write Once and Read Many)
+
+
+Versioning
+++++++++++
+
+-> Versioning is like a backup tool
+
+-> The Purpose of versioning in the S3 is  if u want to store the multiple variants of the same file/objects then u can go for Versioning Concept.
+
+-> By default versioning is not enabled on the bucket
+
+-> Versioning is Enabled on bucket level but applied on object level.
+
+-> when we upload same file multiple times then versions will be created.
+
+corejava.jpg (v1, v2, v3) - v3 latest version
+
+advjava.jpg (v1, v2, v3) - v3 is latest version
+
+-> If somebody deleted my original object by mistake, for latest version delete marker label will be applied.
+   we can recover the deleted objects also if u have Enabled  this versioning concept. 
+
+->Every version will have a unique ID, Version ID is always unqiue 
+
+-> versioning files we can download at any time
+
+-> when we delete the original object, then it will create delete marker on the latest versioning
+
+-> If we want the object to be re-stored, delete the delete marker on latest version then our object is re-stored.
+
+-> You can't download delete marker version, you can only delete it.
+
+-> Once you have enabled the versioning, you can't disable it. You can only suspend it.
+
+-> AWS charges for Versioning, becareful while you enable versioning for huge files.
+
+-> S3 is unlimited storage
+
+min obj size = 0 Bytes
+Max obj size = 5 TB
+
+We can have unlimited no.of 5TB objs in a single bucket
+
+For single PUT, we can upload max 5 GB.
+
+-> If we want to upload bigger file then we shud go for Multi_part upload (MPU) (break files in smaller chunks and upload it)
+
+-> AWS recommended, if you have >100 MB use MPU
+
+Storage Classes
++++++++++++++++
+-> While uploading the objects into S3 , selecting storage class is mandatory
+
+Scenario : some customers wants to store and wants to access data frequently... some other customers wants to store data but don't want to access frequently... 
+	   we can't charge same bill for both customers because they have diff business requirements. 
+
+
+-> To meet business requirements of clients, AWS provided several storage classes in S3 
+
+Standard Frequently Access( FA ) : For this AWS is Not charging that is the reason they made it as default storage class.
+--------------------------------
+This is used for frequently access data 
+
+Default storage class 
+Regular purpose (storing, website, images etc)
+No retrival charges 
+Availability = 99.9 %
+Durability=999999999 (11 9's)
+Min Obj size is 0 Bytes
+
+Standard In-Frequently Access (IA)
+----------------------------------
+Frequently access but not critical
+Not Retrival charges 
+AWS doesn't recommend to use this
+Cheaper than others
+Availability = 99.9 %
+Durability=99.99%
+min obj size = 128 kb
+min duration : 30 days 
+
+
+
+One Zone IA
+------------
+In-frequently access but not critical
+
+retrival charges apply
+availability=99.99%
+Durability= 11 9's
+Min Obj size = 128 KB
+min obj size = 128 kb
+min duration : 30 days 
+
+
+
+Intelligent Tiering
+--------------------
+Unknown access pattern
+Based on access it moves from FA to IA
+availability=99.99%
+Durability= 11 9's
+
+min duration : 30 days
+
+Glacier
+-------
+Infrequently access data 
+archiving purpose
+vault : container of archives
+Archive : Object /Archive(zip) -> 40 TB 
+unlimited no.of archives
+1000 vaults
+Retrival charges apply
+
+
+Glacier has retrival options
+----------------------------
+Expedited : 1 to 5 mins
+Standard : 3 to 5 hours
+Bulk : 5 to 12 hours 
+availability=99.99%
+Durability= 11 9's
+Min duration : 90 days
+
+Note: Deep Glocier min duration is 180 days
+
+-> It is possible to move the objects from one storage class to another storage class automatically (LCM) -> Life Cycle management.
+
+
+-> LCM is created on bucket level and applied on object level
+
+-> Life cycle rule  (current version & previous version)
+
+-> my obj moving from FA -> IA (30 days) -> Glacier(60 days) ->this is called transition 
+
+-> Delete after 365 days (Expiration)
+
+-> Object Lock (Permanent Lock & certain period lock)
+
+-> I have a bucket named as movies. 
+
+-> We can enable bucket logs to identify who is accessing our bucket
+
+CORS - Cross Origin Region Resource Sharing
+-----------------------------
+-> Create bucket and upload puppy.jpg
+
+-> Create another bucket with index.html and access puppy.jpg in html
+
+Note: It is not possible bcz we have not enabled CORS.
+
+-> By default, CORS is not enabled.
+
+CRR (Cross Region Replication)
+SRR (Same Region Replication)
+
+-> If anyone trying access data from mumbai bucket to Tokyo bucket then it will have high latency.
+
+-> To access it easily we can use CRR
+
+-> The data which is in one bucket we can replicate to another bucket for low latency
+
+-> We should create CRR rule for this.
+
+
+Encryption
+-----------
+Encryption is used for security
+
+Encryption can be done in 2 ways
+
+In-Transit : Encryption while data is moving/flow HTTPS
+
+Data At Rest : Encryption while data is at rest
+
+
+-> Amazon S3 has 3 types of encryptions
+
+serer-side encryption
+SSE - S3 (AWS Managed Key)
+SSE - KMS (AWS KMS Key)
+SSE - C (Customer Provided Key)
+
+client-side encryption (should be handled by customer, how to reach aws is our headache )
+in-transit encryption (using https)
+
+
+-> AWS Certification manager (ACM)
+is where you can generate HTTPS certificates (SSL/TLS/HTTPS)
+
+-> S3 data consistency models - 2 types 
+
+Read after write consistency for PUTS of new objects (immediatley)
+Eventually consistency for overwrites of puts and deletes
+
+-> Pre-Signed URL (it will be accessible for limited time)
+
+Transfer Acceleration
+---------------------
+
+-> If we want to transfer the data from our place to AWS bucket it will use our own internet. Our internet may be slow if u want to transfer the data quickly then S3 is providing onw concept called Transfer Accelaration	
+	by default that Tansfer Accelaration is Disabled in S3, if u Enable the Transfer Accelaration then AWS Internal Network will be connected to our system then Data will be uploaded faster and AWS will charge for that.
+	because AWS is Providing thier network to u to transfer the data quickly
+
+-> We can speed up transfer process using Transfer Acceleration.
+
+-> It is used to transfer data fastly (It will use CDN concept)
+
+-> With CDN it will use AWS internal network
+
+
+
+Static Website Hosting
+++++++++++++++++++++++++++
+1) Create a bucket in S3 (bucket-name : ashokit.com)..
+
+	- Enter unique name for bucket 
+	
+	- uncheck block public access
+	
+
+2) Goto bucket policy and configure below policy for bucket 
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::ashokit.org/*"
+            ]
+        }
+    ]
+}
+
+3) Upload static website files (Make them as public access)
+
+index.html for main content
+error.html for wrong url
+
+4) Go to bucket properties and choose 'Static Website Hosting' 
+
+configure welcome file and error file
+
+5) It will display URL, access that URL
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+S3 (simple storage service ) is a global service
+S3 used to store unlimited data
+In S3 we will create buckets to store the data in the objects(objects means  flat file (files,folders,images,....))
+Every bucket will have a unique endpoint / URL
+By default buckets are private (we can make them public)
+Every object will have its own url
+we can create pre-signed url for the object(temporary url with limited period access)
+objects are by default are private ( we can make them public)
+we can enable versioning for buckets (it applies on objects)
+we can enable encryption for buckets
+we can enable Object lock for bucket ( only owners will have full control)
+we can enable Transfer accelaration for bucket ( to make upload process quickly )
+Storage class is mandatory to upload objects into buckets
+Note: There are  several storage classes available in s3(standard FA is default)
+Note: Based on storage class Billing will be generated
+we can host static website using s3 bucket
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,95 @@
+Application Architecture (client-server)
+
+Load Balancer (distributed load to multiple servers)
+
+What is Cloud Computing (Getting IT resource over internet)
+
+Cloud Advantages (low cost, pay as you go, availability, scalability)
+
+IaaS vs PaaS vs SaaS
+
+What is AWS (AWS is market leader in cloud computing)
+
+AWS introduction (Providing 200+ services since 2006 - 190+ countries)
+
+AWS Services tour (EC2, S3, RDS, Dynamo DB, Route 53, VPC, SNS....)
+
+AWS is having Global Infrastructure
+
+Regions: means one Geographical Location(AWS having 26 regions)
+	 One Region can have multiple Availability Zones.
+
+Availability Zones: means Data Centers(AWS having 84 AZs)
+
+Data Center: means itis a Big Building which contains lot of Servers with network,power,security
+
+AWS managing  infrastructure in DataCenters
+
+In India AWS is having  only one Region i.e Mumbai(ap-south-1)
+	Mumbai Region having 3 DataCenters 
+	ap-south-1a
+	ap-south-1b
+	ap-south-1c
+			
+
+--------------------------------------------------------------------------------------------
+To use AWS services, we need to create account in AWS
+
+Note: 1 year free service in AWS
+
+-> In AWS we can use services for practise purpose and we can close those services after our practise to avoid billing.
+
+-> To create account in AWS we need to provide Debit/Credit card. They will deduct only
+2 INR for card verifcation and they will refund those 2 INR also.
+
+-> If you use services in AWS more than given limit then will calculate how much you time you used that service and based on that usage Bill will be generated for your account.
+
+Note: AWS will not deduct bill amount from our cards directley. We have to pay the bill otherwise AWS will terminate our account.
+
+---------------------------------------------------------------------------------------------
+EC2
+-------------------------------------------------------------------------------------------
+
+-> Elastic Compute Cloud
+
+-> Using this service we can create Virtual Machines in AWS
+
+(In Virtual Machines we will install server and we will deploy our applications)
+
+
+EC2 Instance Types
+Launching Windows VM 
+RDP Client
+Launching Linux VM
+Key-Pairs
+Security Groups
+Putty (To connect with EC2 Linux Instance)
+Volumes
+Snapshots
+EBS (Root Volume & Additional Volume)
+Load Balancing
+Auto Scaling
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

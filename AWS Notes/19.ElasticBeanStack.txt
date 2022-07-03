@@ -1,0 +1,32 @@
+
+ElasticBeanStack 
++++++++++++++++++++
+
+-> ELastic Bean Stack Service will provide the platform  to run our application
+
+	Here u no need to launch a VM, no need to install the server, no need to configure the securitygroup, no need to configure loadbalancing,autoscalling,vpc nothing
+	whatever the infrastructure is required to run our application will be provided by ElasticBeanStack
+
+	Cloud providers will provide the services in 3ways 
+		1.IAAS
+		2.PAAS
+		3.SAAS
+
+-> when u go for on-premises everything is to be managed  which is required to run ur application
+-> when u go for IAAS service networking,storage,servers,virtualization will be provided by cloud provider u need to just manage the OS,middleware,runtime,data,applications
+	as of now we did IAAS we launched a VM with OS, we are installing servers in that machine then we are running the application.
+-> Their are some cloud providers who are providing PAAS services
+   PAAS service means they will provide u everything which is required for ur application to run u just develop the project and give that project to cloud provider then they will run ur project
+   If iam not interested to do on my own i will concentrate only on application development whatever the infrastructure is required for my application cloud provider will provide i will focus only on my project then u will go for PAAS
+-> when u go for SAAS service means if i dont want to do anything  evrything i want somebody to provide like ZOOM software
+
+Q: which service will provide the PAAS model in AWS?
+A: ElasticBeanStack will provide the PAAS model
+
+-> When u go for ElasticBeanStack do we need to manage the servers,OS,LoadBakancers,,network,storge  nothing is required 
+	u just develop the application u give that application code to ElasticBeanStack it will prepare the Environment to run the application
+-> If we go for IAAS model then we need manage everything we need to setup server,networking,storage,loadbalancer,autoscalling,VPC, everything we have to manage our own
+
+
+Note: ElasticBeanStack is paid or free ?
+A: EBS is Free but the resources that which is creating internally those are chargable.

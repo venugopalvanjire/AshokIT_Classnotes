@@ -1,0 +1,101 @@
+-> We launched Windows VM using EC2 in AWS
+
+-> We connected with windows vm using RDP client
+
+							RDP
+		My Laptop -----------------> Windows VM
+
+-> Windows OS is recommended only for personal use
+
+-> In Realtime Environment , we will use Linux OS to run our applications
+
+
+
+Linux
++++++
+-> Linux is Free and Open source OS
+-> Linux is secured OS
+-> Linux is Multi User Based OS
+-> Linux Operating System having Several Distributions (flavours)
+
+Ubuntu
+Debian
+Suse
+Fedora
+Amazon Linux
+
+--------------------------------------------------------------------------------
+Requirement : Launch Linux VM using EC2 service and connect to Linux VM using Putty or Mobexterm software.
+-------------------------------------------------------------------------------
+
+-> When we launch EC2 instance use Key-Pair for securing our EC2 instances
+
+-> Key-Pair is a combination of public key & private key
+
+-> AWS will store public key and it will provide private key file for us
+
+		(private key file will have .pem extension)
+
+-> For Windows VM we will open RDP port (3389)
+
+-> For Linux VM we will open SSH port (22)
+
+
+Launch Linux VM
+----------------
+Choose AMI (Amazon Linux)
+Instance Type -> t2.micro (Free Tier Eligible)
+Configure Instance Details (No need to change anything) 
+Storage (Default 8gb for Linux)
+Add Tag (Name -> MyFirstLinuxVM)
+Security Group (SSH with Port 22)
+Download Key Pair (.pem file)
+Launch Instance
+Go to EC2 dashboard and Check Public IP of Ec2 instance and notedown that
+
+
+Connect to EC2 using putty
+--------------------------
+1) Download and install putty software
+2) Open Putty Gen software and convert .pem to .ppk file
+3) Open Putty software and connec to EC2 using IP & PPK file
+		(SSH -> Auth -> Upload ppk file)
+		IP : <take from ec2 dashboard>
+		Username : ec2-user
+
+Connect to EC2 using MobaXterm
+-------------------------------
+1) Download and install MobaXterm software
+2) Open Session and choose SSH
+3) Enter HOST name as public ip of Ec2 instance
+4) Go to Advanced SSH setting and upload .pem file directley
+5) Connect to EC2 and enter username
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

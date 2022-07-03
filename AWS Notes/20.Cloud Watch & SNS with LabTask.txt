@@ -1,0 +1,43 @@
+Amazon Cloud Watch
+++++++++++++++++++
+
+Amazon CloudWatch is a component of Amazon Web Services that provides monitoring for AWS resources and the customer applications running on the Amazon infrastructure.
+
+CloudWatch enables real-time monitoring of AWS resources such as Amazon Elastic Compute Cloud (EC2) instances, Amazon Elastic Block Store (EBS) volumes, Elastic Load Balancing and Amazon Relational Database Service (RDS) instances.
+The application automatically collects and provides metrics for CPU utilization, latency and request counts. Users can also stipulate additional metrics to be monitored, such as memory usage, transaction volumes or error rate.
+
+By default cloudwatch is using nginx server internally to run our application that nginx server will run on 5000 port so we have to configure that.
+	EX: SERVER_PORT 5000
+Our application port u no need to consider because application port is 9090 which will be setup by developer
+
+Cloud Watch & SNS - Lab Task
+++++++++++++++++++++++++++++++
+
+Task: I have a EC2 instance in that some linux OS is available for this EC2 instance i want to keep one CloudWatch the cloudwatch is used to monitor my EC2 instance
+      now for this cloudwatch iam going to create one alarm, alarm means  it is going to trigger based on the trigger point, for my alarm the trigger point is if EC2 instance cpu is >+ 10% then trigger the alarm
+      then the alarm send a msg to SNS( Simple Notification Service means whichis used to send notification ) whenever msg comes to SNS	then SNS will send a notification to given email/sms
+	This SNS is going to work on PUB & Sub model..
+	In this SNS we need to create topic and that topic need to subscribe email/sms
+so when the alarm triggers then that alarm pushes sms to the SNS topic this SNS topic will send a email to gicen email id
+
+1) Create SNS Topic with Email Notification
+
+2) Configure Email Subscription in SNS Topic (Confirm Subscription recieved in email)
+
+3) Go To Ec2 -> select Action -> cloudwatch monitoring -> Add/editAlarm Create cloud watch with Alarm In EC2 instance
+    
+  Alarm Trigger Condition : If given thresh hold reaches send notification to SNS
+  Thresh Hold : Avg CPU >= 5%
+
+4) Connect to EC2 instance
+
+5) Increase load on the EC2 instance using "stress" software
+
+  $ sudo amazon-linux-extras install epel -y
+  $ sudo yum install stress -y
+  $ uptime
+  $ sudo stress --cpu 8 -v --timeout 180s
+  $ uptime
+
+6) Observe the behaviour of Cloud Watch / Alaram / SNS  
+    (We should get Email Notification)
